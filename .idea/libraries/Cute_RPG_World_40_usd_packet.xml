@@ -1,0 +1,13 @@
+<component name="libraryTable">
+  <library name="Cute RPG World 40 usd packet">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/environment/frontend_server/static_dirs/assets/the_ville/visuals/map_assets/Cute RPG World 40 usd packet/Cute RPG World.zip!/" />
+      <root url="jar://$PROJECT_DIR$/environment/frontend_server/static_dirs/assets/the_ville/visuals/map_assets/Cute RPG World 40 usd packet/Cute RPG World - RPG Maker MV.zip!/" />
+      <root url="jar://$PROJECT_DIR$/environment/frontend_server/static_dirs/assets/the_ville/visuals/map_assets/Cute RPG World 40 usd packet/Cute RPG World - RPG Maker VX Ace.zip!/" />
+      <root url="jar://$PROJECT_DIR$/environment/frontend_server/static_dirs/assets/the_ville/visuals/map_assets/Cute RPG World 40 usd packet/Cute RPG World - RPG Maker MZ.zip!/" />
+      <root url="jar://$PROJECT_DIR$/environment/frontend_server/static_dirs/assets/the_ville/visuals/map_assets/Cute RPG World 40 usd packet/Cute RPG World - RPG Maker MZ (16x16).zip!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>
