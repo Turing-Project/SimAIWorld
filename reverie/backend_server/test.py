@@ -20,7 +20,7 @@ import time
 
 from utils import *
 
-openai.api_key = "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"
+openai.api_key = ""
 os.environ["http_proxy"] = "127.0.0.1:7890"
 os.environ["https_proxy"] = "127.0.0.1:7890"
 
