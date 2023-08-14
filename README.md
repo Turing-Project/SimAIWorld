@@ -15,7 +15,6 @@
 - 可适配移动端
 - 修复了刷新网页或点击人物状态后小镇崩溃等BUG
 
-<br>
 ## <img src="https://joonsungpark.s3.amazonaws.com:443/static/assets/characters/profile/Isabella_Rodriguez.png" alt="Generative Isabella">   环境设置 
 
 - 基本环境和论文保持一致，Python==3.9.12（兼容旧版本，我用的3.8也可以，3.10不确定）
@@ -89,47 +88,46 @@ AI模拟小镇需要启动2个服务，一个环境服务（Django，常驻）�
 保存的仿真进度会在你下一次的仿真服务启动时获取，你可以直接进行回放。 
 
 ### Step 4. 虚拟世界回放
-You can replay a simulation that you have already run simply by having your environment server running and navigating to the following address in your browser: `http://localhost:8000/replay/<simulation-name>/<starting-time-step>`. Please make sure to replace `<simulation-name>` with the name of the simulation you want to replay, and `<starting-time-step>` with the integer time-step from which you wish to start the replay.
+首先按照前两步打开服务（如果你没关闭环境服务，可以只启动仿真服务）进入回放页面: `http://localhost:8000/replay/<simulation-name>/<starting-time-step>`. 这里 `<simulation-name>` 是你之前命名的仿真名称, `<starting-time-step>` 对应你想从第几个时间步开始回放.
 
-For instance, by visiting the following link, you will initiate a pre-simulated example, starting at time-step 1:  
-[http://localhost:8000/replay/July1_the_ville_isabella_maria_klaus-step-3-20/1/](http://localhost:8000/replay/July1_the_ville_isabella_maria_klaus-step-3-20/1/)
+比如，我要从第10秒钟开始，回放test_valley_0813这个保存的仿真:  
+[http://localhost:8000/replay/July1_the_ville_isabella_maria_klaus-step-3-20/1/](http://localhost:8000/replay/test_valley_0813/1/)
 
-### Step 5. Demoing a Simulation
-You may have noticed that all character sprites in the replay look identical. We would like to clarify that the replay function is primarily intended for debugging purposes and does not prioritize optimizing the size of the simulation folder or the visuals. To properly demonstrate a simulation with appropriate character sprites, you will need to compress the simulation first. To do this, open the `compress_sim_storage.py` file located in the `reverie` directory using a text editor. Then, execute the `compress` function with the name of the target simulation as its input. By doing so, the simulation file will be compressed, making it ready for demonstration.
+以上的回放目前只支持debug，页面展示的人物都是一样的，如果要完整回放，先找到`reverie`文件夹下面的`compress_sim_storage.py`，把你要回放的仿真名称作为参数传给`compress`函数.
 
-To start the demo, go to the following address on your browser: `http://localhost:8000/demo/<simulation-name>/<starting-time-step>/<simulation-speed>`. Note that `<simulation-name>` and `<starting-time-step>` denote the same things as mentioned above. `<simulation-speed>` can be set to control the demo speed, where 1 is the slowest, and 5 is the fastest. For instance, visiting the following link will start a pre-simulated example, beginning at time-step 1, with a medium demo speed:  
-[http://localhost:8000/demo/July1_the_ville_isabella_maria_klaus-step-3-20/1/3/](http://localhost:8000/demo/July1_the_ville_isabella_maria_klaus-step-3-20/1/3/)
+然后进入这个页面: `http://localhost:8000/demo/<simulation-name>/<starting-time-step>/<simulation-speed>`. 
 
-### Tips
-We've noticed that OpenAI's API can hang when it reaches the hourly rate limit. When this happens, you may need to restart your simulation. For now, we recommend saving your simulation often as you progress to ensure that you lose as little of the simulation as possible when you do need to stop and rerun it. Running these simulations, at least as of early 2023, could be somewhat costly, especially when there are many agents in the environment.
+这里多出来的子页面参数`<simulation-speed>` 指的是回放速度, 最小为1，最大为5，速度递增。
 
-## <img src="https://joonsungpark.s3.amazonaws.com:443/static/assets/characters/profile/Maria_Lopez.png" alt="Generative Maria">   Simulation Storage Location
-All simulations that you save will be located in `environment/frontend_server/storage`, and all compressed demos will be located in `environment/frontend_server/compressed_storage`. 
+### 小贴士
+默认的模型用的是OPENAI，仿真体超过10个，每调用10个step你就会失去一个KFC吮指原味鸡，所以建议step调小点先试试，不要反复用100 step来跑。
 
-## <img src="https://joonsungpark.s3.amazonaws.com:443/static/assets/characters/profile/Sam_Moore.png" alt="Generative Sam">   Customization
+此外，国内用户调用API时可能会遇到网络不稳定导致调用失败（Code != 200）此时可以在运行中实时保存，避免重新跑一遍
 
-There are two ways to optionally customize your simulations. 
+## <img src="https://joonsungpark.s3.amazonaws.com:443/static/assets/characters/profile/Maria_Lopez.png" alt="Generative Maria">   仿真存储
+仿真默认的保存位置在 `environment/frontend_server/storage`, 所有压缩过的demo则放在 `environment/frontend_server/compressed_storage`. 
 
-### Author and Load Agent History
-First is to initialize agents with unique history at the start of the simulation. To do this, you would want to 1) start your simulation using one of the base simulations, and 2) author and load agent history. More specifically, here are the steps:
+## <img src="https://joonsungpark.s3.amazonaws.com:443/static/assets/characters/profile/Sam_Moore.png" alt="Generative Sam">   个性化
 
-#### Step 1. Starting Up a Base Simulation 
-There are two base simulations included in the repository: `base_the_ville_n25` with 25 agents, and `base_the_ville_isabella_maria_klaus` with 3 agents. Load one of the base simulations by following the steps until step 2 above. 
+另外这一版本也支持更多个性化开发，比如
+### 修改智能体背景
+你可以尝试给每个智能体赋予更加独一无二的背景，步骤如下:
+
+#### Step 1. 启动基础环境 
+跟之前的步骤一样，打开两个服务，运行仿真环境
 
 #### Step 2. Loading a History File 
-Then, when prompted with "Enter option: ", you should load the agent history by responding with the following command:
+在"输入配置: "中，使用这个命令来让模型读取你自定义的人物背景描述:
 
     call -- load history the_ville/<history_file_name>.csv
-Note that you will need to replace `<history_file_name>` with the name of an existing history file. There are two history files included in the repo as examples: `agent_history_init_n25.csv` for `base_the_ville_n25` and `agent_history_init_n3.csv` for `base_the_ville_isabella_maria_klaus`. These files include semicolon-separated lists of memory records for each of the agents—loading them will insert the memory records into the agents' memory stream.
+
+你可以直接重新写一个，也可以在已有的文件里改，主要有两个，`agent_history_init_n25.csv`和`agent_history_init_n3.csv` 注意：格式要与原始的CSV保持一致
 
 #### Step 3. Further Customization 
-To customize the initialization by authoring your own history file, place your file in the following folder: `environment/frontend_server/static_dirs/assets/the_ville`. The column format for your custom history file will have to match the example history files included. Therefore, we recommend starting the process by copying and pasting the ones that are already in the repository.
-
-### Create New Base Simulations
-For a more involved customization, you will need to author your own base simulation files. The most straightforward approach would be to copy and paste an existing base simulation folder, renaming and editing it according to your requirements. This process will be simpler if you decide to keep the agent names unchanged. However, if you wish to change their names or increase the number of agents that the Smallville map can accommodate, you might need to directly edit the map using the [Tiled](https://www.mapeditor.org/) map editor.
+最后把你的文件放到这个文件夹下: `environment/frontend_server/static_dirs/assets/the_ville`.
 
 
-## <img src="https://joonsungpark.s3.amazonaws.com:443/static/assets/characters/profile/Eddy_Lin.png" alt="Generative Eddy">   Authors and Citation 
+## <img src="https://joonsungpark.s3.amazonaws.com:443/static/assets/characters/profile/Eddy_Lin.png" alt="Generative Eddy">   参考项目与引用 
 
 **Authors:** Joon Sung Park, Joseph C. O'Brien, Carrie J. Cai, Meredith Ringel Morris, Percy Liang, Michael S. Bernstein
 
@@ -147,14 +145,4 @@ location = {San Francisco, CA, USA},
 series = {UIST '23}
 }
 ```
-
-## <img src="https://joonsungpark.s3.amazonaws.com:443/static/assets/characters/profile/Wolfgang_Schulz.png" alt="Generative Wolfgang">   Acknowledgements
-
-We encourage you to support the following three amazing artists who have designed the game assets for this project, especially if you are planning to use the assets included here for your own project: 
-* Background art: [PixyMoon (@_PixyMoon\_)](https://twitter.com/_PixyMoon_)
-* Furniture/interior design: [LimeZu (@lime_px)](https://twitter.com/lime_px)
-* Character design: [ぴぽ (@pipohi)](https://twitter.com/pipohi)
-
-In addition, we thank Lindsay Popowski, Philip Guo, Michael Terry, and the Center for Advanced Study in the Behavioral Sciences (CASBS) community for their insights, discussions, and support. Lastly, all locations featured in Smallville are inspired by real-world locations that Joon has frequented as an undergraduate and graduate student---he thanks everyone there for feeding and supporting him all these years.
-
 
