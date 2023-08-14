@@ -6,13 +6,28 @@
 <img src="cover.png" alt="Smallville" style="width: 80%; min-width: 300px; display: block; margin: auto;">
 </p>
 
-This repository accompanies our research paper titled "[Generative Agents: Interactive Simulacra of Human Behavior](https://arxiv.org/abs/2304.03442)." It contains our core simulation module for  generative agents—computational agents that simulate believable human behaviors—and their game environment. Below, we document the steps for setting up the simulation environment on your local machine and for replaying the simulation as a demo animation.
+本项目是以斯坦福开源项目 "[Generative Agents: Interactive Simulacra of Human Behavior](https://arxiv.org/abs/2304.03442)." 为基础，进行的汉化、优化与移动端适配开发，主要包含生成式多智能体的模拟仿真环境和对应的前端展示。此外，我们也保留了斯坦福原项目对于仿真的行为记录模块，可以离线本地进行环境replay.
 
-## <img src="https://joonsungpark.s3.amazonaws.com:443/static/assets/characters/profile/Isabella_Rodriguez.png" alt="Generative Isabella">   Setting Up the Environment 
-To set up your environment, you will need to generate a `utils.py` file that contains your OpenAI API key and download the necessary packages.
+### 项目Feature
+- 支持中文界面
+- 优化调用速度
+- 支持本地LLM
+- 可适配移动端
+- 修复了刷新网页或点击人物状态后小镇崩溃等BUG
 
-### Step 1. Generate Utils File
-In the `reverie/backend_server` folder (where `reverie.py` is located), create a new file titled `utils.py` and copy and paste the content below into the file:
+<br>
+## <img src="https://joonsungpark.s3.amazonaws.com:443/static/assets/characters/profile/Isabella_Rodriguez.png" alt="Generative Isabella">   环境设置 
+
+- 基本环境和论文保持一致，Python==3.9.12（兼容旧版本，我用的3.8也可以，3.10不确定）
+<br>
+
+首先
+```
+pip install -r requirements.txt
+```
+然后在`reverie/backend_server`目录下生成一个 `utils.py` 文件，复制下面的代码并在里面替换上你自己的OpenAI API key.
+
+### Step 1. 生成工具文件
 ```
 # Copy and paste your OpenAI API Key
 openai_api_key = "<Your OpenAI API>"
@@ -31,45 +46,49 @@ collision_block_id = "32125"
 # Verbose 
 debug = True
 ```
-Replace `<Your OpenAI API>` with your OpenAI API key, and `<name>` with your name.
  
-### Step 2. Install requirements.txt
-Install everything listed in the `requirements.txt` file (I strongly recommend first setting up a virtualenv as usual). A note on Python version: we tested our environment on Python 3.9.12. 
 
-## <img src="https://joonsungpark.s3.amazonaws.com:443/static/assets/characters/profile/Klaus_Mueller.png" alt="Generative Klaus">   Running a Simulation 
-To run a new simulation, you will need to concurrently start two servers: the environment server and the agent simulation server.
+## <img src="https://joonsungpark.s3.amazonaws.com:443/static/assets/characters/profile/Klaus_Mueller.png" alt="Generative Klaus">    运行仿真
+AI模拟小镇需要启动2个服务，一个环境服务（Django，常驻）一个智能体服务（支撑AI决策）
 
-### Step 1. Starting the Environment Server
-Again, the environment is implemented as a Django project, and as such, you will need to start the Django server. To do this, first navigate to `environment/frontend_server` (this is where `manage.py` is located) in your command line. Then run the following command:
+### Step 1. 启动环境服务
+环境服务依赖于Django server. 首先CD到 `environment/frontend_server`目录下，然后运行以下命令:
 
     python manage.py runserver
 
-Then, on your favorite browser, go to [http://localhost:8000/](http://localhost:8000/). If you see a message that says, "Your environment server is up and running," your server is running properly. Ensure that the environment server continues to run while you are running the simulation, so keep this command-line tab open! (Note: I recommend using either Chrome or Safari. Firefox might produce some frontend glitches, although it should not interfere with the actual simulation.)
+用浏览器打开以下网址（推荐Chrome）[http://localhost:8000/](http://localhost:8000/). 如果你看到 "环境已启动并正常运行中..." 就代表启动成功. 注意，这个服务要常驻，如果你没有在后台挂起，那么你的CMD必须时刻打开。
 
-### Step 2. Starting the Simulation Server
-Open up another command line (the one you used in Step 1 should still be running the environment server, so leave that as it is). Navigate to `reverie/backend_server` and run `reverie.py`.
+### Step 2. 启动仿真服务
+
+再打开一个CMD，切换到 `reverie/backend_server` 目录下然后：
 
     python reverie.py
-This will start the simulation server. A command-line prompt will appear, asking the following: "Enter the name of the forked simulation: ". To start a 3-agent simulation with Isabella Rodriguez, Maria Lopez, and Klaus Mueller, type the following:
+
+仿真服务器随后会启动，然后提示你 "输入智能体名称: ". 这里我们使用斯坦福自带的3智能体测试用例——Isabella Rodriguez, Maria Lopez, and Klaus Mueller,:
     
     base_the_ville_isabella_maria_klaus
-The prompt will then ask, "Enter the name of the new simulation: ". Type any name to denote your current simulation (e.g., just "test-simulation" will do for now).
+
+然后会弹出第二行提示, "输入新仿真的名字: ". 随便起一个就行，比如"test-simulation".
 
     test-simulation
-Keep the simulator server running. At this stage, it will display the following prompt: "Enter option: "
 
-### Step 3. Running and Saving the Simulation
-On your browser, navigate to [http://localhost:8000/simulator_home](http://localhost:8000/simulator_home). You should see the map of Smallville, along with a list of active agents on the map. You can move around the map using your keyboard arrows. Please keep this tab open. To run the simulation, type the following command in your simulation server in response to the prompt, "Enter option":
+最后会提示: "输入选项: "，先别管，跳到下一步
 
-    run <step-count>
-Note that you will want to replace `<step-count>` above with an integer indicating the number of game steps you want to simulate. For instance, if you want to simulate 100 game steps, you should input `run 100`. One game step represents 10 seconds in the game.
+### Step 3. 运行与保存
+用浏览器打开以下网址[http://localhost:8000/simulator_home](http://localhost:8000/simulator_home). 如果你能看到AI小镇的页面，并且可以用键盘上下左右移动视角，那么代表你的服务启动成功了。注意，原版的代码在你刷新网页或点击人物状态后会直接崩溃，这一版我们修复了这个BUG。
 
+确保网页正常后，回到第二个CMD里，在"输入选项: "后写上你要运行的仿真步数（就是你想让这个AI世界运行多长时间，1步代表AI世界的10秒钟）
 
-Your simulation should be running, and you will see the agents moving on the map in your browser. Once the simulation finishes running, the "Enter option" prompt will re-appear. At this point, you can simulate more steps by re-entering the run command with your desired game steps, exit the simulation without saving by typing `exit`, or save and exit by typing `fin`.
+    run <步数>
+把 `<步数>`用一个整数替代，不要太大一般5-20即可，比如 `run 10`。
 
-The saved simulation can be accessed the next time you run the simulation server by providing the name of your simulation as the forked simulation. This will allow you to restart your simulation from the point where you left off.
+此时回到网页，你会观察到AI们开始移动和变化状态了。如果没有动，是因为DEMO运行需要先生成再显示，等几分钟再看看。运行完成后，会再度出现输入选项的提示，你可以继续生成、退出或者保存。 
 
-### Step 4. Replaying a Simulation
+退出指令为`exit`, 保存指令为 `fin`.
+
+保存的仿真进度会在你下一次的仿真服务启动时获取，你可以直接进行回放。 
+
+### Step 4. 虚拟世界回放
 You can replay a simulation that you have already run simply by having your environment server running and navigating to the following address in your browser: `http://localhost:8000/replay/<simulation-name>/<starting-time-step>`. Please make sure to replace `<simulation-name>` with the name of the simulation you want to replay, and `<starting-time-step>` with the integer time-step from which you wish to start the replay.
 
 For instance, by visiting the following link, you will initiate a pre-simulated example, starting at time-step 1:  
