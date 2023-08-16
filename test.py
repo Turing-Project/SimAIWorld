@@ -5,11 +5,11 @@ File: gpt_structure.py
 Description: Wrapper functions for calling OpenAI APIs.
 
 TODO:
-    1.展示页面大小
-    2.展示界面汉化
+    1.展示页面大小-done
+    2.展示界面汉化-done
         - 人物状态汉化
         - 人物名称汉化
-        - 系统状态汉化
+        - 系统状态汉化-done
     3.Django前端转发
 """
 import json
@@ -17,10 +17,10 @@ import os
 import random
 import openai
 import time
+from reverie.backend_server.utils import *
 
-from utils import *
 
-openai.api_key = ""
+openai.api_key = openai_api_key
 os.environ["http_proxy"] = "127.0.0.1:7890"
 os.environ["https_proxy"] = "127.0.0.1:7890"
 

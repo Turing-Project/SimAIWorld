@@ -67,7 +67,7 @@ AI模拟小镇需要启动2个服务，一个环境服务（Django，常驻）�
     
     base_the_ville_isabella_maria_klaus
 
-然后会弹出第二行提示, "输入新仿真的名字: ". 随便起一个就行，比如"test-simulation".
+然后会弹出第二行提示, "输入仿真的名字: ". 随便起一个就行，比如"test-simulation".
 
     test-simulation
 
@@ -76,7 +76,7 @@ AI模拟小镇需要启动2个服务，一个环境服务（Django，常驻）�
 ### Step 3. 运行与保存
 用浏览器打开以下网址[http://localhost:8000/simulator_home](http://localhost:8000/simulator_home). 如果你能看到AI小镇的页面，并且可以用键盘上下左右移动视角，那么代表你的服务启动成功了。注意，原版的代码在你刷新网页或点击人物状态后会直接崩溃，这一版我们修复了这个BUG。
 
-确保网页正常后，回到第二个CMD里，在"输入选项: "后写上你要运行的仿真步数（就是你想让这个AI世界运行多长时间，1步代表AI世界的10秒钟）
+确保网页正常后，回到第二个CMD里，在"输入参数: "后写上你要运行的仿真步数（就是你想让这个AI世界运行多长时间，1步代表AI世界的10秒钟）
 
     run <步数>
 把 `<步数>`用一个整数替代，不要太大一般5-20即可，比如 `run 10`。
@@ -102,7 +102,7 @@ AI模拟小镇需要启动2个服务，一个环境服务（Django，常驻）�
 ### 小贴士
 默认的模型用的是OPENAI，仿真体超过10个，每调用10个step你就会失去一个KFC吮指原味鸡，所以建议step调小点先试试，不要反复用100 step来跑。
 
-此外，国内用户调用API时可能会遇到网络不稳定导致调用失败（Code != 200）此时可以在运行中实时保存，避免重新跑一遍
+此外，国内用户调用API时可能会遇到网络不稳定导致调用失败 (code!=200) 我们加入了运行中实时保存的功能，避免重新跑一遍
 
 ## <img src="https://joonsungpark.s3.amazonaws.com:443/static/assets/characters/profile/Maria_Lopez.png" alt="Generative Maria">   仿真存储
 仿真默认的保存位置在 `environment/frontend_server/storage`, 所有压缩过的demo则放在 `environment/frontend_server/compressed_storage`. 
@@ -117,7 +117,7 @@ AI模拟小镇需要启动2个服务，一个环境服务（Django，常驻）�
 跟之前的步骤一样，打开两个服务，运行仿真环境
 
 #### Step 2. Loading a History File 
-在"输入配置: "中，使用这个命令来让模型读取你自定义的人物背景描述:
+在"输入参数: "中，使用这个命令来让模型读取你自定义的人物背景描述:
 
     call -- load history the_ville/<history_file_name>.csv
 

@@ -432,7 +432,7 @@ class ReverieServer:
         sim_folder = f"{fs_storage}/{self.sim_code}"
 
         while True:
-            sim_command = input("Enter option: ")
+            sim_command = input("输入参数: ")
             sim_command = sim_command.strip()
             ret_str = ""
 
@@ -606,8 +606,8 @@ if __name__ == '__main__':
     #                    "July1_the_ville_isabella_maria_klaus-step-3-21")
     # rs.open_server()
 
-    origin = input("Enter the name of the forked simulation: ").strip()
-    target = input("Enter the name of the new simulation: ").strip()
+    origin = input("输入智能体名称: ").strip()
+    target = input("输入仿真的名字 ").strip()
 
     rs = ReverieServer(origin, target)
     rs.open_server()

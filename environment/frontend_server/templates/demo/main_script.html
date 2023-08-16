@@ -2,15 +2,7 @@
 
 <script type="text/javascript">
 	/*
-	  Main resources: 
-	  https://www.youtube.com/watch?v=cKIG1lKwLeo&t=401s&ab_channel=HongLy
-	  For the ground zero code, see the exported files from here: 
-	  https://codepen.io/mikewesthad/pen/BVeoYP?editors=1111 
-
-	  Also worth taking a look: 
-	  https://www.youtube.com/watch?v=fdXcD9X4NrQ&ab_channel=MorganPage
-	  and 
-	  https://www.youtube.com/watch?v=MR2CvWxOEsw&ab_channel=MattWilber
+	  我们的频道：B站搜索图灵的猫
 	 */
 
 
@@ -28,8 +20,8 @@
 	// Configuration meant to be passed to the main Phaser game instance. 
 	const config = {
 	  type: Phaser.AUTO,
-	  width: 1500,
-	  height: 800,
+	  width: 2300,
+	  height: 1500,
 	  parent: "game-container",
 	  pixelArt: true,
 	  physics: {
@@ -40,7 +32,7 @@
 	    preload: preload,
 	    create: create,
 	    update: update },
-	  scale: {zoom: 0.8} };
+	  scale: {zoom: 0.6} };
 
 	// const config = {
 	//   type: Phaser.AUTO,
@@ -264,6 +256,7 @@
 	  // We start by creating the game sprite objects. 
 	  for (let i=0; i<Object.keys(spawn_tile_loc).length; i++) { 
 	    let persona_name = Object.keys(spawn_tile_loc)[i];
+        let persona_name_ch = "Xiaomei"
 	    let start_pos = [spawn_tile_loc[persona_name][0] * tile_width + tile_width / 2, 
 	                     spawn_tile_loc[persona_name][1] * tile_width + tile_width];
 	    let new_sprite = this.physics.add

@@ -1,3 +1,5 @@
+# -*- coding: utf-8 -*-
+
 """
 Author: Joon Sung Park (joonspk@stanford.edu)
 File: views.py
@@ -12,10 +14,23 @@ import os
 import datetime
 from django.shortcuts import render, redirect, HttpResponseRedirect
 from django.http import HttpResponse, JsonResponse
-from global_methods import *
 
 from django.contrib.staticfiles.templatetags.staticfiles import static
+
+from .global_methods import *
 from .models import *
+
+with open("D:\\Tureco\\SimAIWorld\\environment\\frontend_server\\translator\\name.json", "r", encoding="utf-8") as f:
+    js = f.read()
+    names_mapping = json.loads(js)['persona_names_mapping']
+    # print(names_mapping)
+
+from django.template.defaulttags import register
+
+
+@register.filter
+def get_item(dictionary, key):
+    return dictionary.get(key)
 
 
 def landing(request):
@@ -37,7 +52,7 @@ def demo(request, sim_code, step, play_speed="2"):
 
     # Loading the basic meta information about the simulation.
     meta = dict()
-    with open(meta_file) as json_file:
+    with open(meta_file, encoding='utf-8') as json_file:
         meta = json.load(json_file)
 
     sec_per_step = meta["sec_per_step"]
@@ -49,7 +64,7 @@ def demo(request, sim_code, step, play_speed="2"):
 
     # Loading the movement file
     raw_all_movement = dict()
-    with open(move_file) as json_file:
+    with open(move_file, encoding='utf-8') as json_file:
         raw_all_movement = json.load(json_file)
 
     # Loading all names of the personas
@@ -90,6 +105,7 @@ def demo(request, sim_code, step, play_speed="2"):
     context = {"sim_code": sim_code,
                "step": step,
                "persona_names": persona_names,
+               "persona_names_mapping": names_mapping,
                "persona_init_pos": json.dumps(persona_init_pos),
                "all_movement": json.dumps(all_movement),
                "start_datetime": start_datetime,
@@ -225,6 +241,7 @@ def replay_persona_state(request, sim_code, step, persona_name):
     context = {"sim_code": sim_code,
                "step": step,
                "persona_name": persona_name,
+               "persona_names_mapping": names_mapping,
                "persona_name_underscore": persona_name_underscore,
                "scratch": scratch,
                "spatial": spatial,
