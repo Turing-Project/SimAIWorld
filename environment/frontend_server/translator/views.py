@@ -25,18 +25,15 @@ with open("D:\\Tureco\\SimAIWorld\\environment\\frontend_server\\translator\\nam
     names_mapping = json.loads(js)['persona_names_mapping']
     # print(names_mapping)
 
-from django.template.defaulttags import register
-
-
-@register.filter
-def get_item(dictionary, key):
-    return dictionary.get(key)
-
 
 def landing(request):
     context = {}
     template = "landing/landing.html"
     return render(request, template, context)
+
+
+def testcall(request):
+    return HttpResponse(request.POST['text'] + "test")
 
 
 def demo(request, sim_code, step, play_speed="2"):

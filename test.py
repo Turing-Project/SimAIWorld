@@ -19,25 +19,25 @@ import openai
 import time
 from reverie.backend_server.utils import *
 
-
-openai.api_key = openai_api_key
-os.environ["http_proxy"] = "127.0.0.1:7890"
-os.environ["https_proxy"] = "127.0.0.1:7890"
+openai.api_key = random.choice(openai_api_key)
+os.environ["http_proxy"] = "http://127.0.0.1:7890"
+os.environ["https_proxy"] = "https://127.0.0.1:7890"
 
 
 def ChatGPT_request(prompt):
     """
   Given a prompt and a dictionary of GPT parameters, make a request to OpenAI
-  server and returns the response. 
+  server and returns the response.
   ARGS:
     prompt: a str prompt
-    gpt_parameter: a python dictionary with the keys indicating the names of  
-                   the parameter and the values indicating the parameter 
-                   values.   
-  RETURNS: 
-    a str of GPT-3's response. 
+    gpt_parameter: a python dictionary with the keys indicating the names of
+                   the parameter and the values indicating the parameter
+                   values.
+  RETURNS:
+    a str of GPT-3's response.
   """
-    # temp_sleep()
+    time.sleep(1)
+
     try:
         completion = openai.ChatCompletion.create(
             model="gpt-3.5-turbo",
@@ -46,8 +46,7 @@ def ChatGPT_request(prompt):
         return completion["choices"][0]["message"]["content"]
 
     except Exception as e:
-        print(f"ChatGPT ERROR:{e}")
-        return "ChatGPT ERROR"
+        return f"ChatGPT ERROR:{e}"
 
 
 prompt = """

@@ -78,12 +78,14 @@
 			  <div class="media-body" style='padding-left:3em; padding-top:0.5em; padding-bottom:1em'>
 			  	<div class="row">
 			    	<h2 class="col-md-8" id="name__{{ p.underscore }}" style="margin-bottom:0.8em; font-size:1.85em; ">
-			    		{{p.original}}
+						{{persona_names_mapping|get_item:p.original}}
+<!--						{{p.original}}-->
 			    		<a href="{% url 'replay_persona_state' sim_code step p.underscore %}" style="font-size:0.6em">详细状态</a>
 			    	</h2>
 			    </div>
 			    <div style="">
-					  <p style="font-size:1.2em"><strong>当前行为:</strong> <br><span id="current_action__{{ p.underscore }}"></span></p>
+
+					  <p style="font-size:1.2em"><strong>当前行为:</strong> <span id="current_action__{{ p.underscore }}"></span></p>
 					  <p style="font-size:1.2em"><strong>位置:</strong> <br><span id="target_address__{{ p.underscore }}"></span></p>
 					  <p style="font-size:1.2em"><strong>当前对话:</strong> <br><span id="chat__{{ p.underscore }}"></span></p>
 					</div>

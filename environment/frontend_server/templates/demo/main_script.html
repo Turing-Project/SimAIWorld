@@ -1,5 +1,8 @@
 {% load staticfiles %}
 
+
+<!--<script type="text/javascript" src="/eel.js"></script>-->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <script type="text/javascript">
 	/*
 	  我们的频道：B站搜索图灵的猫
@@ -76,7 +79,7 @@
 	let tile_width = 32;
 	// Important: tile_width % movement_speed has to be 0. 
 	// <movement_speed> determines how fast we move at each upate cylce. 
-	let movement_speed = {{play_speed}}; 
+	let movement_speed = {{play_speed}};
 
 	// Variables for storing movements that are sent from the backend server.
 	let execute_count_max = tile_width/movement_speed;
@@ -87,7 +90,6 @@
   let start_datetime =new Date(Date.parse("{{start_datetime}}"));
   var datetime_options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
  	document.getElementById("game-time-content").innerHTML = start_datetime.toLocaleTimeString("en-US", datetime_options);
- 	
 
 	// ###########################################################################
 	// ENGINE
@@ -160,11 +162,11 @@
 	  this.load.image('speech_bubble', "{% static 'assets/speech_bubble/v3.png' %}");
 	}
 
+
 	function create() {  
 	  const map = this.make.tilemap({ key: "map" });
 	  // Joon: Logging map is really helpful for debugging here: 
 	  //       console.log(map);
-
 	  // The first parameter is the name you gave to the tileset in Tiled and then
 	  // the key of the tileset image in Phaser's cache (i.e. the name you used in
 	  // preload)
@@ -378,26 +380,26 @@
     	let curr_speech_bubble = speech_bubbles[Object.keys(personas)[i]];
 
     	if (curr_persona_name.replace("_", " ") in all_movement[step]) {
-    		if (execute_count == execute_count_max) { 
+    		if (execute_count == execute_count_max) {
     			let curr_x = all_movement[step][curr_persona_name.replace("_", " ")]["movement"][0]
 	        let curr_y = all_movement[step][curr_persona_name.replace("_", " ")]["movement"][1]
-    			movement_target[curr_persona_name] = [curr_x * tile_width, 
-	                                              curr_y * tile_width]; 
+    			movement_target[curr_persona_name] = [curr_x * tile_width,
+	                                              curr_y * tile_width];
 	        let pronunciatio_content = all_movement[step][curr_persona_name.replace("_", " ")]["pronunciatio"];
 	        let description_content = all_movement[step][curr_persona_name.replace("_", " ")]["description"];
 	        let chat_content_raw = all_movement[step][curr_persona_name.replace("_", " ")]["chat"];
 
 	        let chat_content = "";
 	        if (chat_content_raw != null ){
-		        for (let j=0; j<chat_content_raw.length; j++) { 
+		        for (let j=0; j<chat_content_raw.length; j++) {
 		        	chat_content += chat_content_raw[j][0] + ": " + chat_content_raw[j][1] + "<br>"
 		        }
 		      } else {
 		      	chat_content = "<em>None at the moment</em>"
 		      }
 
-	       	// This is what gives the pronunciatio balloon the name initials. We 
-	        // use regex to extract the initials of the personas. 
+	       	// This is what gives the pronunciatio balloon the name initials. We
+	        // use regex to extract the initials of the personas.
 	        // E.g., "Dolores Murphy" -> "DM"
 	        let rgx = new RegExp(/(\p{L}{1})\p{L}+/, 'gu');
 	        let initials = [...curr_persona_name.matchAll(rgx)] || [];
@@ -406,7 +408,46 @@
 	        ).toUpperCase();
 	        pronunciatios[curr_persona_name].setText(initials + ": " + pronunciatio_content);
 
-	        // Updating the status of each personas 
+
+            var text = "test successful";
+            // var url = 'language.py'
+            // $.ajax({
+            //     type: "POST",
+            //     url: url,
+            //     data: { text: text },
+            //     success: function callback(response){
+            //         pronunciatio_content = response;
+            //         console.log(response)
+            //     }
+            // });
+
+	        // Updating the status of each personas
+            //     function postData(input) {
+            //         $.ajax({
+            //             type: "POST",
+            //             url: "http://localhost/language.py",
+            //             data: { param: input },
+            //             success: callbackFunc
+            //         });
+            //     }
+            //
+            //     function callbackFunc(response) {
+            //         // do something with the response
+            //         console.log(response);
+            //     }
+            //
+            //     postData('data to process');
+            // myscript.js
+            let param = "test";
+            let xhr = new XMLHttpRequest();
+            xhr.onreadystatechange = function() {
+                if (this.readyState === 4 && this.status === 200) {
+                    console.log(this.responseText);
+                }
+            };
+            // xhr.open("GET", "/get_value/" + param, true);
+            // xhr.send();
+
 	        document.getElementById("quick_emoji-"+curr_persona_name).innerHTML = pronunciatio_content;
 	        document.getElementById("current_action__"+curr_persona_name).innerHTML = description_content.split("@")[0];
 	        document.getElementById("target_address__"+curr_persona_name).innerHTML = description_content.split("@")[1];
