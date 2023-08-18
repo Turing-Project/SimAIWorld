@@ -5,7 +5,7 @@
 <p align="center" width="100%">
 <img src="cover.png" alt="Smallville" style="width: 80%; min-width: 300px; display: block; margin: auto;">
 </p>
-
+![img.png](img.png)
 本项目是以斯坦福开源项目 "[Generative Agents: Interactive Simulacra of Human Behavior](https://arxiv.org/abs/2304.03442)." 为基础，进行的汉化、优化与移动端适配开发，主要包含生成式多智能体的模拟仿真环境和对应的前端展示。此外，我们也保留了斯坦福原项目对于仿真的行为记录模块，可以离线本地进行环境replay.
 
 ### 项目Feature
@@ -13,7 +13,16 @@
 - 优化调用速度
 - 支持本地LLM
 - 可适配移动端
-- 修复了刷新网页或点击人物状态后小镇崩溃等BUG
+
+### 开发日志
+- 原始论文demo与本地调试开发 (2023-07)
+- 界面汉化+自定义人物背景
+- Json源数据处理
+- 移动端适配（HarmonyOS） (2023-08)
+- 修复了刷新网页或点击人物状态后崩溃的BUG
+- 修复了本地调用模型时Exception的BUG
+- 修复了类间引用的Import Error
+- AtomicService应用测试 (2023-09)
 
 ## <img src="https://joonsungpark.s3.amazonaws.com:443/static/assets/characters/profile/Isabella_Rodriguez.png" alt="Generative Isabella">   环境设置 
 
