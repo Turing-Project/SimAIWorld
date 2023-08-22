@@ -8,7 +8,6 @@ import random
 import string
 import csv
 
-import eel
 import time
 import datetime as dt
 import pathlib
@@ -27,7 +26,7 @@ def get_item(dictionary, key):
     return dictionary.get(key)
 
 
-@eel.expose
+# @eel.expose
 def translate_name(src: str):
     return src + " test"
 

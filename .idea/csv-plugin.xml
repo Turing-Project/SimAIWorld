@@ -3,6 +3,20 @@
   <component name="CsvFileAttributes">
     <option name="attributeMap">
       <map>
+        <entry key="\environment\frontend_server\static_dirs\assets\the_ville\agent_history_init_n25.csv">
+          <value>
+            <Attribute>
+              <option name="separator" value=";" />
+            </Attribute>
+          </value>
+        </entry>
+        <entry key="\environment\frontend_server\static_dirs\assets\the_ville\agent_history_init_n3.csv">
+          <value>
+            <Attribute>
+              <option name="separator" value=";" />
+            </Attribute>
+          </value>
+        </entry>
         <entry key="\environment\frontend_server\static_dirs\assets\the_ville\matrix\special_blocks\arena_blocks.csv">
           <value>
             <Attribute>
