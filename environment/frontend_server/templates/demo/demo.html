@@ -42,7 +42,7 @@
 							<div class="row" style="padding:0">
 								<div class="col-md-4" id="on_screen_det_trigger_container-{{p.underscore}}" style="text-align:center; padding:0; padding-top:0.3em">
 									{% with 'assets/characters/profile/'|add:p.underscore|add:'.png' as image_static %}
-									<img src="{% static image_static %}" style="width:46px; padding:0; "> 
+									<img src="{% static image_static %}" style="width:64px; padding:0; ">
 									{% endwith %}
 									<br>
 									{{ p.initial }}
@@ -61,7 +61,7 @@
 
 		<div class="media" id="on_screen_det_content-init" style="background-color:#EEEEEE; padding:1em; padding-left:3.5em; padding-right:2em; border-radius:10px; ">
 		  <div class="media-left media-middle">
-		    <em>Click on one of the character sprites to see its current state in more detail. </em>
+		    <em>点击当前AI图标，可以获得更详细的状态信息 </em>
 		  </div>
 		</div>	
 

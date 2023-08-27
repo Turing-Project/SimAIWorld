@@ -71,7 +71,7 @@ def demo(request, sim_code, step, play_speed="2"):
     for p in list(raw_all_movement["0"].keys()):
         persona_names += [{"original": p,
                            "underscore": p.replace(" ", "_"),
-                           "initial": p[0] + p.split(" ")[-1][0]}]
+                           "initial": names_mapping[p]}]
         persona_names_set.add(p)
 
     # <all_movement> is the main movement variable that we are passing to the
@@ -80,7 +80,7 @@ def demo(request, sim_code, step, play_speed="2"):
     # information in one step.
     all_movement = dict()
 
-    # Preparing the initial step.
+    # Preparing the initial steps.
     # <init_prep> sets the locations and descriptions of all agents at the
     # beginning of the demo determined by <step>.
     init_prep = dict()
