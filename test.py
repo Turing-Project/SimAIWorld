@@ -23,13 +23,16 @@ openai.api_key = random.choice(openai_api_key)
 os.environ["http_proxy"] = "http://127.0.0.1:7890"
 os.environ["https_proxy"] = "https://127.0.0.1:7890"
 
+load_dotenv(override=True)
+load_dotenv(find_dotenv(), override=True)
 
-def ChatGPT_request(prompt):
+
+def ChatGPT_request(prompts):
     """
   Given a prompt and a dictionary of GPT parameters, make a request to OpenAI
   server and returns the response.
   ARGS:
-    prompt: a str prompt
+    prompts: a str prompt
     gpt_parameter: a python dictionary with the keys indicating the names of
                    the parameter and the values indicating the parameter
                    values.
@@ -41,7 +44,7 @@ def ChatGPT_request(prompt):
     try:
         completion = openai.ChatCompletion.create(
             model="gpt-3.5-turbo",
-            messages=[{"role": "user", "content": prompt}]
+            messages=[{"role": "user", "content": prompts}]
         )
         return completion["choices"][0]["message"]["content"]
 
