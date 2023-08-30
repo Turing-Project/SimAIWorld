@@ -17,6 +17,9 @@ import os
 import random
 import openai
 import time
+
+from dotenv import load_dotenv, find_dotenv
+
 from reverie.backend_server.utils import *
 
 openai.api_key = random.choice(openai_api_key)
