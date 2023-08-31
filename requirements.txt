@@ -70,3 +70,5 @@ zipp==3.6.0
 pathlib~=1.0.1
 flask~=2.2.2
 eel~=0.16.0
+googletrans~=4.0.0rc1
+python-dotenv~=1.0.0

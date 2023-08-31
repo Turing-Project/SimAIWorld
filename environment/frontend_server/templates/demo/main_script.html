@@ -23,7 +23,7 @@
 	// Configuration meant to be passed to the main Phaser game instance. 
 	const config = {
 	  type: Phaser.AUTO,
-	  width: 2300,
+	  width: 2000,
 	  height: 1500,
 	  parent: "game-container",
 	  pixelArt: true,
@@ -35,7 +35,7 @@
 	    preload: preload,
 	    create: create,
 	    update: update },
-	  scale: {zoom: 0.6} };
+	  scale: {zoom: 0.55} };
 
 	// const config = {
 	//   type: Phaser.AUTO,
@@ -89,7 +89,7 @@
 
   let start_datetime =new Date(Date.parse("{{start_datetime}}"));
   var datetime_options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
- 	document.getElementById("game-time-content").innerHTML = start_datetime.toLocaleTimeString("en-US", datetime_options);
+ 	document.getElementById("game-time-content").innerHTML = start_datetime.toLocaleTimeString("ch-CN", datetime_options);
 
 	// ###########################################################################
 	// ENGINE
@@ -406,7 +406,7 @@
 	        initials = (
 	          (initials.shift()?.[1] || '') + (initials.pop()?.[1] || '')
 	        ).toUpperCase();
-	        pronunciatios[curr_persona_name].setText(initials + ": " + pronunciatio_content);
+	        pronunciatios[curr_persona_name].setText("test" + ": " + pronunciatio_content);
 
 
             var text = "test successful";
@@ -519,7 +519,7 @@
 	    step = step + 1;
 
 	    start_datetime = new Date(start_datetime.getTime() + step_size);
- 			document.getElementById("game-time-content").innerHTML = start_datetime.toLocaleTimeString("en-US", datetime_options);
+ 			document.getElementById("game-time-content").innerHTML = start_datetime.toLocaleTimeString("ch-CN", datetime_options);
     }
 
 	  execute_count -= 1;
