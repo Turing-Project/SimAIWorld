@@ -11,26 +11,30 @@
 	<div style="width:90%; margin: 0 auto; margin-top:4.5em">
 
 		<h3 style="margin-bottom:-0.5em; font-size:2em; color: teal"><b>环界-当前时间:</b></h3>
+
 		<div class="row">
 			<div class="col-md-12" id="game-time" style="color: aliceblue">
 				<h2><span id="game-time-content"></span></h2>
+				<div class="row-md-4" style="">
+					<div class="media-left media-bottom">
+						<h2 style="text-align: left; {% if mode == 'simulate' %} display: none {% endif %}">
+							<button id="play_button" type="button" class="btn btn-default" style="">
+								<strong style=" font-size:1.2em"><i class="glyphicon glyphicon-play"></i> &nbsp;继续演化</strong>
+							</button>
 
-			</div>
-			<img src="https://img.zcool.cn/community/0104425fcde0ec11013fdcc716974d.gif" width="200" height="125" align="right">
+							<button id="pause_button" type="button" class="btn btn-default">
+								<strong style=" font-size:1.2em"><i class="glyphicon glyphicon-pause"></i> &nbsp;时间暂停</strong>
+							</button>
+						</h2>
+					</div>
+					<div class="inner">
+						<img src="https://img.zcool.cn/community/0104425fcde0ec11013fdcc716974d.gif" width="200" height="125" align="right">
+					</div>
 
-			<div class="col-md-4" style="">
-				<div class="media-left media-bottom">
-					<h2 style="text-align: left; {% if mode == 'simulate' %} display: none {% endif %}">
-						<button id="play_button" type="button" class="btn btn-default" style="">
-						<strong style=" font-size:1.2em"><i class="glyphicon glyphicon-play"></i> &nbsp;继续演化</strong>
-					  </button>
-
-					  <button id="pause_button" type="button" class="btn btn-default">
-						<strong style=" font-size:1.2em"><i class="glyphicon glyphicon-pause"></i> &nbsp;时间暂停</strong>
-					  </button>
-					</h2>
 				</div>
 			</div>
+
+
 		</div>
 
 		<br>
