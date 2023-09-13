@@ -11,13 +11,16 @@ import time
 
 from utils import *
 
-openai.api_key = openai_api_key
+openai.api_key = random.choice(openai_api_key)
+
 
 def temp_sleep(seconds=0.1):
   time.sleep(seconds)
 
+
 def ChatGPT_single_request(prompt): 
   temp_sleep()
+  openai.api_key = random.choice(openai_api_key)
 
   completion = openai.ChatCompletion.create(
     model="gpt-3.5-turbo", 
@@ -69,6 +72,8 @@ def ChatGPT_request(prompt):
     a str of GPT-3's response. 
   """
   # temp_sleep()
+  openai.api_key = random.choice(openai_api_key)
+
   try: 
     completion = openai.ChatCompletion.create(
     model="gpt-3.5-turbo", 
@@ -129,6 +134,8 @@ def ChatGPT_safe_generate_response(prompt,
                                    func_clean_up=None,
                                    verbose=False): 
   # prompt = 'GPT-3 Prompt:\n"""\n' + prompt + '\n"""\n'
+  openai.api_key = random.choice(openai_api_key)
+
   prompt = '"""\n' + prompt + '\n"""\n'
   prompt += f"Output the response to the prompt above in json. {special_instruction}\n"
   prompt += "Example output json:\n"
@@ -174,6 +181,8 @@ def ChatGPT_safe_generate_response_OLD(prompt,
     print ("CHAT GPT PROMPT")
     print (prompt)
 
+  openai.api_key = random.choice(openai_api_key)
+
   for i in range(repeat): 
     try: 
       curr_gpt_response = ChatGPT_request(prompt).strip()
@@ -207,10 +216,12 @@ def GPT_request(prompt, gpt_parameter):
     a str of GPT-3's response. 
   """
   temp_sleep()
+  openai.api_key = random.choice(openai_api_key)
+
   try: 
-    response = openai.Completion.create(
+    response = openai.ChatCompletion.create(
                 model=gpt_parameter["engine"],
-                prompt=prompt,
+                messages=[{"role": "user", "content": prompt}],
                 temperature=gpt_parameter["temperature"],
                 max_tokens=gpt_parameter["max_tokens"],
                 top_p=gpt_parameter["top_p"],
@@ -218,9 +229,9 @@ def GPT_request(prompt, gpt_parameter):
                 presence_penalty=gpt_parameter["presence_penalty"],
                 stream=gpt_parameter["stream"],
                 stop=gpt_parameter["stop"],)
-    return response.choices[0].text
-  except: 
-    print ("TOKEN LIMIT EXCEEDED")
+    return response.choices[0]['message']['content']
+  except Exception as e:
+    print (f"TOKEN LIMIT EXCEEDED: {e}")
     return "TOKEN LIMIT EXCEEDED"
 
 
@@ -261,6 +272,7 @@ def safe_generate_response(prompt,
                            verbose=False): 
   if verbose: 
     print (prompt)
+  openai.api_key = random.choice(openai_api_key)
 
   for i in range(repeat): 
     curr_gpt_response = GPT_request(prompt, gpt_parameter)
@@ -282,7 +294,7 @@ def get_embedding(text, model="text-embedding-ada-002"):
 
 
 if __name__ == '__main__':
-  gpt_parameter = {"engine": "text-davinci-003", "max_tokens": 50, 
+  gpt_parameter = {"engine": "gpt-3.5-turbo", "max_tokens": 50,
                    "temperature": 0, "top_p": 1, "stream": False,
                    "frequency_penalty": 0, "presence_penalty": 0, 
                    "stop": ['"']}

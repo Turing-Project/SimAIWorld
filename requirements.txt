@@ -28,7 +28,7 @@ matplotlib==3.7.2
 multidict==6.0.4
 nltk==3.6.5
 numpy==1.25.2
-openai==0.27.0
+openai~=0.27.10
 outcome==1.2.0
 packaging==23.0
 pandas==2.0.3
@@ -72,3 +72,4 @@ flask~=2.2.2
 eel~=0.16.0
 googletrans~=4.0.0rc1
 python-dotenv~=1.0.0
+litellm~=0.1.424

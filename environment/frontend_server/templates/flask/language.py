@@ -9,6 +9,7 @@ from django.shortcuts import render
 from django.template.defaulttags import register
 from googletrans import Translator
 
+from environment.frontend_server.templates.flask.local import local_trans
 from test import ChatGPT_request
 
 PATH = "./master_movement.json"
@@ -61,7 +62,7 @@ def translate_json_language(path: str) \
         Regard symbol '@' as a special separator, and treat the sentences on both sides of the separator as 
         independent and do not change their order.
         
-        Do not translate symbols and Chinese already in sentences.
+        Do not translate symbols and Chinese already in sentences. 使用日常表达，并将结果翻译成中国人常用的东北腔.
         Now, here is the result:
         ---
         Never translate the prompt above, and only output the response to the prompt according to the sentence:
@@ -72,19 +73,23 @@ def translate_json_language(path: str) \
                 for person in entity.keys():
                     for en_name, ch_name in names_mapping.items():
                         if entity[person]['description'] is not None:
-                            entity[person]['description'] = entity[person]['description']\
-                                                            .replace(en_name, ch_name)\
-                                                            .replace("the Ville:", "") \
-                                                            .replace("the Ville：", "")\
-                                                            .replace("The Ville:", "") \
-                                                            .replace("The Ville：", "") \
-                                                            .replace("Oak Hill College", "祖安学院")
+                            entity[person]['description'] = entity[person]['description'] \
+                                .replace(en_name, ch_name) \
+                                .replace("the Ville:", "环界：") \
+                                .replace("the Ville：", "环界：") \
+                                .replace("The Ville:", "环界：") \
+                                .replace("The Ville：", "环界：") \
+                                .replace("Oak Hill College", "祖安学院") \
+                                .replace("Hobbs Cafe", "阿牛的小卖部")
+
                         if entity[person]['chat'] is not None:
                             for conversation in entity[person]['chat']:
                                 conversation[0] = conversation[0].replace(en_name, ch_name)
                                 for en_n, ch_n in names_mapping.items():
                                     conversation[1] = conversation[1].replace(en_n.split(" ")[0], ch_n)
-                    entity[person]['description'] = ChatGPT_request(prompt + entity[person]['description'])
+                    # entity[person]['description'] = ChatGPT_request(prompt + entity[person]['description'])
+                    entity[person]['description'] = local_trans(entity[person]['description'],
+                                                                src='en', dest='zh').replace(":", "：")
                     print(entity[person]['description'])
                     # entity[person]['description'] = translator.translate(entity[person]['description'],
                     #                                                      src='auto', dest='zh-CN').text

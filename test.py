@@ -19,6 +19,7 @@ import openai
 import time
 
 from dotenv import load_dotenv, find_dotenv
+from litellm import completion
 
 from reverie.backend_server.utils import *
 
@@ -30,27 +31,34 @@ load_dotenv(override=True)
 load_dotenv(find_dotenv(), override=True)
 
 
-def ChatGPT_request(prompts):
+def ChatGPT_request(prompts: object) -> object:
     """
-  Given a prompt and a dictionary of GPT parameters, make a request to OpenAI
-  server and returns the response.
-  ARGS:
-    prompts: a str prompt
-    gpt_parameter: a python dictionary with the keys indicating the names of
-                   the parameter and the values indicating the parameter
-                   values.
-  RETURNS:
-    a str of GPT-3's response.
-  """
+      Given a prompt and a dictionary of GPT parameters, make a request to OpenAI
+      server and returns the response.
+      ARGS:
+        prompts: a str prompt
+        gpt_parameter: a python dictionary with the keys indicating the names of
+                       the parameter and the values indicating the parameter
+                       values.
+      RETURNS:
+        a str of GPT-3's response.
+      """
     time.sleep(1)
 
     try:
-        completion = openai.ChatCompletion.create(
+        # openai call
+        response = openai.ChatCompletion.create(
             model="gpt-3.5-turbo",
             messages=[{"role": "user", "content": prompts}]
         )
-        return completion["choices"][0]["message"]["content"]
+        reply = response["choices"][0]["message"]["content"]
 
+        # llama2 call
+        response = completion(model="meta-llama/Llama-2-7b-hf",
+                              messages=[{"role": "user", "content": prompts}])
+        reply = response["choices"][0]["message"]["content"]
+
+        return reply
     except Exception as e:
         return f"ChatGPT ERROR:{e}"
 

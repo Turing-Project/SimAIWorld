@@ -1,6 +1,5 @@
-"""
-Author: Joon Sung Park (joonspk@stanford.edu)
 
+"""
 File: reverie.py
 Description: This is the main program for running generative agent simulations
 that defines the ReverieServer class. This class maintains and records all  
@@ -75,7 +74,7 @@ class ReverieServer:
         # "June 25, 2022"
         # e.g., ...strptime(June 25, 2022, "%B %d, %Y")
         self.start_time = datetime.datetime.strptime(
-            f"{reverie_meta['start_date']}, 00:00:00",
+            f"{reverie_meta['start_date']}, 06:00:00",
             "%B %d, %Y, %H:%M:%S")
         # <curr_time> is the datetime instance that indicates the game's current
         # time. This gets incremented by <sec_per_step> amount everytime the world
@@ -607,7 +606,7 @@ if __name__ == '__main__':
     # rs.open_server()
 
     origin = input("输入智能体名称: ").strip()
-    target = input("输入仿真的名字 ").strip()
+    target = input("输入仿真的名字: ").strip()
 
     rs = ReverieServer(origin, target)
     rs.open_server()

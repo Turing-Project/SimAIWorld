@@ -13,8 +13,6 @@ import sys
 import datetime
 import random
 
-from reverie.backend_server.persona.cognitive_modules.converse import open_convo_session
-
 sys.path.append('../')
 
 from global_methods import *

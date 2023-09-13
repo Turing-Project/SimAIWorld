@@ -5,11 +5,9 @@
   "sec_per_step": 10,
   "maze_name": "the_ville",
   "persona_names": [
-    "罗德里格斯",
-    "洛佩茨",
-    "克莱夫"
+    "Isabella Rodriguez",
+    "Maria Lopez",
+    "Klaus Mueller"
   ],
   "step": 0
 }
-
-//http://localhost:8000/replay/base_the_ville_isabella_maria_klaus/1

@@ -20,7 +20,7 @@ from django.contrib.staticfiles.templatetags.staticfiles import static
 from .global_methods import *
 from .models import *
 
-with open("D:\\桌面\\Tureco\\SimAIWorld\\environment\\frontend_server\\translator\\name.json", "r", encoding="utf-8") as f:
+with open("D:\\Tureco\\SimAIWorld\\environment\\frontend_server\\translator\\name.json", "r", encoding="utf-8") as f:
     js = f.read()
     names_mapping = json.loads(js)['persona_names_mapping']
     # print(names_mapping)
@@ -69,9 +69,10 @@ def demo(request, sim_code, step, play_speed="2"):
     persona_names = []
     persona_names_set = set()
     for p in list(raw_all_movement["0"].keys()):
+        init_name = names_mapping[p] if p in names_mapping.keys() else p
         persona_names += [{"original": p,
                            "underscore": p.replace(" ", "_"),
-                           "initial": names_mapping[p]}]
+                           "initial": init_name}]
         persona_names_set.add(p)
 
     # <all_movement> is the main movement variable that we are passing to the
