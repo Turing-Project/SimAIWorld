@@ -1,0 +1,218 @@
+{
+  "persona": {
+    "Isabella Rodriguez": {
+      "movement": [
+        78,
+        19
+      ],
+      "pronunciatio": "\u2615\ufe0f",
+      "description": "greeting customers and serving coffee and breakfast items at Hobbs Cafe (preparing the coffee machine and brewing fresh coffee) @ the Ville:Hobbs Cafe:cafe:behind the cafe counter",
+      "chat": null
+    },
+    "Giorgio Rossi": {
+      "movement": [
+        87,
+        24
+      ],
+      "pronunciatio": "\ud83d\udd0d\ud83d\udcdd",
+      "description": "continuing his research project on mathematical patterns in nature (reviewing his previous findings and notes) @ the Ville:Giorgio Rossi's apartment:main room:blackboard",
+      "chat": null
+    },
+    "Carlos Gomez": {
+      "movement": [
+        106,
+        32
+      ],
+      "pronunciatio": "\ud83d\udc42\ud83c\udfa7",
+      "description": "attending a creative writing workshop (listening to the workshop instructor's introduction) @ the Ville:Oak Hill College:hallway:<random>",
+      "chat": null
+    },
+    "Eddy Lin": {
+      "movement": [
+        95,
+        56
+      ],
+      "pronunciatio": "\ud83c\udf92",
+      "description": "attending his first class at Oak Hill College @ the Ville:Oak Hill College:classroom:classroom student seating",
+      "chat": null
+    },
+    "Klaus Mueller": {
+      "movement": [
+        117,
+        47
+      ],
+      "pronunciatio": "\ud83d\udcda\u270d\ufe0f",
+      "description": "researching and writing his research paper on the effects of gentrification in low-income communities @ the Ville:Oak Hill College:library:library table",
+      "chat": null
+    },
+    "Maria Lopez": {
+      "movement": [
+        123,
+        57
+      ],
+      "pronunciatio": "\ud83d\udca4",
+      "description": "sleeping @ the Ville:Dorm for Oak Hill College:Maria Lopez's room:bed",
+      "chat": null
+    },
+    "Ayesha Khan": {
+      "movement": [
+        108,
+        45
+      ],
+      "pronunciatio": "\ud83d\udeb6\u200d\u2642",
+      "description": "leaving for Oak Hill College @ the Ville:Oak Hill College:hallway:<random>",
+      "chat": null
+    },
+    "Tamara Taylor": {
+      "movement": [
+        56,
+        70
+      ],
+      "pronunciatio": "\ud83d\udcac",
+      "description": "conversing about conversing about helping each other with the busy customers and tasks that need to be done behind the counter @ <persona> Carmen Ortiz",
+      "chat": [
+        [
+          "Tamara Taylor",
+          "Hey Carmen, how's it going with the customers?"
+        ],
+        [
+          "Carmen Ortiz",
+          "Hey Tamara, it's been quite busy with the customers today. There's been a steady flow of people coming in."
+        ],
+        [
+          "Tamara Taylor",
+          "Do you need any help? I can come and assist you for a while."
+        ],
+        [
+          "Carmen Ortiz",
+          "Thanks Tamara, that would be great! I could use some help behind the counter."
+        ],
+        [
+          "Tamara Taylor",
+          "Sure, I'll be right there. Let me finish up what I'm doing and I'll come help you."
+        ],
+        [
+          "Carmen Ortiz",
+          "Thank you, Tamara. I really appreciate your help!"
+        ],
+        [
+          "Tamara Taylor",
+          "I'll be there in a few minutes. Just let me finish up."
+        ],
+        [
+          "Carmen Ortiz",
+          "Take your time, there's no rush. I'll be waiting for you behind the counter."
+        ],
+        [
+          "Tamara Taylor",
+          "I'm almost done here, just a few more minutes."
+        ],
+        [
+          "Carmen Ortiz",
+          "Take your time, there's no rush. I'll be waiting for you behind the counter."
+        ],
+        [
+          "Tamara Taylor",
+          "I'm finished now. Let's go and help the customers."
+        ],
+        [
+          "Carmen Ortiz",
+          "Thank you, Tamara. I really appreciate your help!"
+        ],
+        [
+          "Tamara Taylor",
+          "What tasks need to be done behind the counter?"
+        ],
+        [
+          "Carmen Ortiz",
+          "We need to restock the shelves and organize the new inventory. Can you start with that?"
+        ],
+        [
+          "Tamara Taylor",
+          "Sure, I can start by restocking the shelves and organizing the new inventory."
+        ],
+        [
+          "Carmen Ortiz",
+          "Thanks Tamara! While you restock the shelves, I'll handle the cash register."
+        ]
+      ]
+    },
+    "Carmen Ortiz": {
+      "movement": [
+        55,
+        70
+      ],
+      "pronunciatio": "\ud83d\udcac",
+      "description": "conversing about conversing about helping each other with the busy customers and tasks that need to be done behind the counter @ <persona> Tamara Taylor",
+      "chat": [
+        [
+          "Tamara Taylor",
+          "Hey Carmen, how's it going with the customers?"
+        ],
+        [
+          "Carmen Ortiz",
+          "Hey Tamara, it's been quite busy with the customers today. There's been a steady flow of people coming in."
+        ],
+        [
+          "Tamara Taylor",
+          "Do you need any help? I can come and assist you for a while."
+        ],
+        [
+          "Carmen Ortiz",
+          "Thanks Tamara, that would be great! I could use some help behind the counter."
+        ],
+        [
+          "Tamara Taylor",
+          "Sure, I'll be right there. Let me finish up what I'm doing and I'll come help you."
+        ],
+        [
+          "Carmen Ortiz",
+          "Thank you, Tamara. I really appreciate your help!"
+        ],
+        [
+          "Tamara Taylor",
+          "I'll be there in a few minutes. Just let me finish up."
+        ],
+        [
+          "Carmen Ortiz",
+          "Take your time, there's no rush. I'll be waiting for you behind the counter."
+        ],
+        [
+          "Tamara Taylor",
+          "I'm almost done here, just a few more minutes."
+        ],
+        [
+          "Carmen Ortiz",
+          "Take your time, there's no rush. I'll be waiting for you behind the counter."
+        ],
+        [
+          "Tamara Taylor",
+          "I'm finished now. Let's go and help the customers."
+        ],
+        [
+          "Carmen Ortiz",
+          "Thank you, Tamara. I really appreciate your help!"
+        ],
+        [
+          "Tamara Taylor",
+          "What tasks need to be done behind the counter?"
+        ],
+        [
+          "Carmen Ortiz",
+          "We need to restock the shelves and organize the new inventory. Can you start with that?"
+        ],
+        [
+          "Tamara Taylor",
+          "Sure, I can start by restocking the shelves and organizing the new inventory."
+        ],
+        [
+          "Carmen Ortiz",
+          "Thanks Tamara! While you restock the shelves, I'll handle the cash register."
+        ]
+      ]
+    }
+  },
+  "meta": {
+    "curr_time": "February 13, 2003, 09:14:10"
+  }
+}

@@ -159,7 +159,7 @@ def ChatGPT_safe_generate_response(prompt,
       
       if func_validate(curr_gpt_response, prompt=prompt): 
         return func_clean_up(curr_gpt_response, prompt=prompt)
-      
+      time.sleep(1)
       if verbose: 
         print ("---- repeat count: \n", i, curr_gpt_response)
         print (curr_gpt_response)
@@ -192,7 +192,7 @@ def ChatGPT_safe_generate_response_OLD(prompt,
         print (f"---- repeat count: {i}")
         print (curr_gpt_response)
         print ("~~~~")
-
+        time.sleep(1)
     except: 
       pass
   print ("FAIL SAFE TRIGGERED") 
@@ -229,6 +229,7 @@ def GPT_request(prompt, gpt_parameter):
                 presence_penalty=gpt_parameter["presence_penalty"],
                 stream=gpt_parameter["stream"],
                 stop=gpt_parameter["stop"],)
+    time.sleep(1)
     return response.choices[0]['message']['content']
   except Exception as e:
     print (f"TOKEN LIMIT EXCEEDED: {e}")
@@ -258,6 +259,7 @@ def generate_prompt(curr_input, prompt_lib_file):
   f.close()
   for count, i in enumerate(curr_input):   
     prompt = prompt.replace(f"!<INPUT {count}>!", i)
+    time.sleep(1)
   if "<commentblockmarker>###</commentblockmarker>" in prompt: 
     prompt = prompt.split("<commentblockmarker>###</commentblockmarker>")[1]
   return prompt.strip()
@@ -276,6 +278,7 @@ def safe_generate_response(prompt,
 
   for i in range(repeat): 
     curr_gpt_response = GPT_request(prompt, gpt_parameter)
+    time.sleep(1)
     if func_validate(curr_gpt_response, prompt=prompt): 
       return func_clean_up(curr_gpt_response, prompt=prompt)
     if verbose: 

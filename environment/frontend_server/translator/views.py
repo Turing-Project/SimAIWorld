@@ -103,6 +103,7 @@ def demo(request, sim_code, step, play_speed="2"):
     context = {"sim_code": sim_code,
                "step": step,
                "persona_names": persona_names,
+               "persona_names_sum": persona_names[:15],
                "persona_names_mapping": names_mapping,
                "persona_init_pos": json.dumps(persona_init_pos),
                "all_movement": json.dumps(all_movement),

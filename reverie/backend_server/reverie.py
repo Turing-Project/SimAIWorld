@@ -35,6 +35,8 @@ from utils import *
 from maze import *
 from persona.persona import *
 
+os.environ["http_proxy"] = "http://127.0.0.1:7890"
+os.environ["https_proxy"] = "https://127.0.0.1:7890"
 
 ##############################################################################
 #                                  REVERIE                                   #
