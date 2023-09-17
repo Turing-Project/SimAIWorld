@@ -25,7 +25,7 @@
     <inspection_tool class="PyPackageRequirementsInspection" enabled="true" level="WARNING" enabled_by_default="true">
       <option name="ignoredPackages">
         <value>
-          <list size="8">
+          <list size="12">
             <item index="0" class="java.lang.String" itemvalue="urllib3" />
             <item index="1" class="java.lang.String" itemvalue="regex" />
             <item index="2" class="java.lang.String" itemvalue="pathlib" />
@@ -34,6 +34,10 @@
             <item index="5" class="java.lang.String" itemvalue="typing-extensions" />
             <item index="6" class="java.lang.String" itemvalue="translate" />
             <item index="7" class="java.lang.String" itemvalue="importlib-metadata" />
+            <item index="8" class="java.lang.String" itemvalue="openai" />
+            <item index="9" class="java.lang.String" itemvalue="gpt4all" />
+            <item index="10" class="java.lang.String" itemvalue="googletrans" />
+            <item index="11" class="java.lang.String" itemvalue="litellm" />
           </list>
         </value>
       </option>
