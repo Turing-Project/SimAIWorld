@@ -55,6 +55,8 @@ def demo(request, sim_code, step, play_speed="2"):
     sec_per_step = meta["sec_per_step"]
     start_datetime = datetime.datetime.strptime(meta["start_date"] + " 00:00:00",
                                                 '%B %d, %Y %H:%M:%S')
+    start_datetime += datetime.timedelta(hours=9)
+
     for i in range(step):
         start_datetime += datetime.timedelta(seconds=sec_per_step)
     start_datetime = start_datetime.strftime("%Y-%m-%dT%H:%M:%S")
