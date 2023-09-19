@@ -24,6 +24,13 @@
             </Attribute>
           </value>
         </entry>
+        <entry key="\environment\frontend_server\static_dirs\assets\the_ville\matrix\special_blocks\game_object_blocks.csv">
+          <value>
+            <Attribute>
+              <option name="separator" value="," />
+            </Attribute>
+          </value>
+        </entry>
         <entry key="\environment\frontend_server\static_dirs\assets\the_ville\matrix\special_blocks\sector_blocks.csv">
           <value>
             <Attribute>

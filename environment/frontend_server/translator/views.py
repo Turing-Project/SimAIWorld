@@ -20,7 +20,7 @@ from django.contrib.staticfiles.templatetags.staticfiles import static
 from .global_methods import *
 from .models import *
 
-with open("D:\\Tureco\\SimAIWorld\\environment\\frontend_server\\translator\\name.json", "r", encoding="utf-8") as f:
+with open("D:\\桌面\\Tureco\\SimAIWorld\\environment\\frontend_server\\translator\\name.json", "r", encoding="utf-8") as f:
     js = f.read()
     names_mapping = json.loads(js)['persona_names_mapping']
     # print(names_mapping)
@@ -55,6 +55,8 @@ def demo(request, sim_code, step, play_speed="2"):
     sec_per_step = meta["sec_per_step"]
     start_datetime = datetime.datetime.strptime(meta["start_date"] + " 00:00:00",
                                                 '%B %d, %Y %H:%M:%S')
+    start_datetime += datetime.timedelta(hours=9)
+
     for i in range(step):
         start_datetime += datetime.timedelta(seconds=sec_per_step)
     start_datetime = start_datetime.strftime("%Y-%m-%dT%H:%M:%S")

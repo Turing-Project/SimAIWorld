@@ -395,9 +395,9 @@
 		        	chat_content += chat_content_raw[j][0] + ": " + chat_content_raw[j][1] + "<br>"
 		        }
 		      } else {
-		      	chat_content = "<em>None at the moment</em>"
+		      	chat_content = "<em></em>"
 		      }
-
+            chat_content = chat_content_raw
 	       	// This is what gives the pronunciatio balloon the name initials. We
 	        // use regex to extract the initials of the personas.
 	        // E.g., "Dolores Murphy" -> "DM"
@@ -406,7 +406,32 @@
 	        initials = (
 	          (initials.shift()?.[1] || '') + (initials.pop()?.[1] || '')
 	        ).toUpperCase();
-	        pronunciatios[curr_persona_name].setText("test" + ": " + pronunciatio_content);
+	        if (initials == "IR") {
+	            initials = "阿牛"
+	        } else if(initials == "KM") {
+	            initials = "小璐"
+	        } else if(initials == "ML") {
+	            initials = "龙哥"
+	        }
+	         else if(initials == "CO") {
+	            initials = "溜子"
+	        }
+	         else if(initials == "CG") {
+	            initials = "铁蛋"
+	        }
+	         else if(initials == "AK") {
+	            initials = "胖哥"
+	        }
+	         else if(initials == "GR") {
+	            initials = "愣子"
+	        }
+	         else if(initials == "TT") {
+	            initials = "小美"
+	        }
+	         else if(initials == "EL") {
+	            initials = "傻子"
+	        }
+	        pronunciatios[curr_persona_name].setText(initials + ": " + pronunciatio_content);
 
 
             var text = "test successful";
