@@ -4,8 +4,8 @@
 
 <p align="center" width="100%">
 
-本项目是以斯坦福开源项目 "[Generative Agents: Interactive Simulacra of Human Behavior](https://arxiv.org/abs/2304.03442)." 为基础，进行的魔改、汉化、优化与移动端适配开发，主要包含生成式多智能体的模拟仿真环境和对应的前端展示。此外，我们也保留了斯坦福原项目对于仿真的行为记录模块，可以离线本地进行环境replay.
-![img_1.png](img_1.png)
+本项目是以斯坦福开源项目 "[Generative Agents: Interactive Simulacra of Human Behavior](https://arxiv.org/abs/2304.03442)." 为基础，进行的魔改、汉化、优化与移动端适配开发，主要包含生成式多智能体的模拟仿真环境和对应的前端展示。此外，我们也保留了斯坦福原项目对于仿真的行为记录模块，可以离线本地进行环境replay
+
 ### 项目Feature
 - 支持中文界面
 - 优化调用速度
@@ -14,12 +14,13 @@
 
 ### 开发日志
 - 原始论文demo与本地调试开发 (2023-07)
-- 界面汉化+自定义人物背景
-- Json源数据处理
+- 底层+界面汉化; 自定义人物背景
 - 移动端适配（HarmonyOS） (2023-08)
 - 修复了刷新网页或点击人物状态后崩溃的BUG
 - 修复了本地调用模型时Exception的BUG
 - AtomicService应用测试 (2023-09)
+- 增加Few-shot learning Example
+- 优化大模型返回的文字表达（东北腔）
 - 新增LLaMa2-7b/GPT4ALL/Falcon-7b/文心大模型
 
 ## <img src="https://img2.baidu.com/it/u=1662862136,2119306862&fm=253&fmt=auto&app=120&f=JPEG?w=1422&h=800" alt="Generative Isabella">   环境设置 
