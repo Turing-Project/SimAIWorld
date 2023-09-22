@@ -1,0 +1,170 @@
+{
+  "persona": {
+    "Isabella Rodriguez": {
+      "movement": [
+        64,
+        48
+      ],
+      "pronunciatio": "\ud83d\udce6\ud83d\udd03",
+      "description": "taking inventory and restocking supplies @ the Ville:Harvey Oak Supply Store:supply store:supply store product shelf",
+      "chat": null
+    },
+    "Giorgio Rossi": {
+      "movement": [
+        87,
+        24
+      ],
+      "pronunciatio": "\ud83d\udd2c",
+      "description": "continuing to work on his research project (analyzing data collected from his experiments) @ the Ville:Giorgio Rossi's apartment:main room:blackboard",
+      "chat": null
+    },
+    "Carlos Gomez": {
+      "movement": [
+        108,
+        23
+      ],
+      "pronunciatio": "\ud83d\udc42\ud83c\udf99\ufe0f",
+      "description": "attending a creative writing workshop (listening to a guest speaker) @ the Ville:Oak Hill College:classroom:classroom podium",
+      "chat": null
+    },
+    "Eddy Lin": {
+      "movement": [
+        111,
+        26
+      ],
+      "pronunciatio": "\ud83d\udcac",
+      "description": "conversing about conversing about collaborating on a music composition project exploring the influence of language and literature @ <persona> Ayesha Khan",
+      "chat": [
+        [
+          "Eddy Lin",
+          "Hey Ayesha! I noticed you were listening to the lecture. What did you think of it?"
+        ],
+        [
+          "Ayesha Khan",
+          "I thought the lecture was really interesting! The professor provided some great insights on how language can shape meaning in literature."
+        ],
+        [
+          "Eddy Lin",
+          "I agree, the professor definitely made some thought-provoking points. Have you ever thought about applying those ideas to music composition?"
+        ],
+        [
+          "Ayesha Khan",
+          "Yes, actually! I've always been fascinated by the relationship between language and music. I think it would be interesting to explore how language can influence the composition process and the overall message of a musical piece. Have you ever created music with a specific language or literary theme in mind?"
+        ],
+        [
+          "Eddy Lin",
+          "That's really cool! I haven't specifically created music with a language or literary theme in mind, but I'd love to give it a try. Maybe we can collaborate on a project together and explore that idea further!"
+        ],
+        [
+          "Ayesha Khan",
+          "That sounds like a great idea! I would love to collaborate with you on a project exploring the influence of language and literature on music composition. We can discuss it further after our classes."
+        ],
+        [
+          "Eddy Lin",
+          "I'm really excited about this collaboration! Let's plan to meet up after our classes and discuss our project in more detail."
+        ],
+        [
+          "Ayesha Khan",
+          "What time will you be done with your classes?"
+        ],
+        [
+          "Eddy Lin",
+          "I'll be done with my classes at 5:00 pm. How about we meet at 5:30 pm at Hobbs Cafe?"
+        ],
+        [
+          "Ayesha Khan",
+          "That works for me! I'll see you at Hobbs Cafe at 5:30 pm."
+        ]
+      ]
+    },
+    "Klaus Mueller": {
+      "movement": [
+        119,
+        24
+      ],
+      "pronunciatio": "\ud83d\udcda",
+      "description": "working on his research paper at the library @ the Ville:Oak Hill College:library:library table",
+      "chat": null
+    },
+    "Maria Lopez": {
+      "movement": [
+        123,
+        57
+      ],
+      "pronunciatio": "\ud83d\ude34",
+      "description": "sleeping @ the Ville:Dorm for Oak Hill College:Maria Lopez's room:bed",
+      "chat": null
+    },
+    "Ayesha Khan": {
+      "movement": [
+        112,
+        26
+      ],
+      "pronunciatio": "\ud83d\udcac",
+      "description": "conversing about conversing about collaborating on a music composition project exploring the influence of language and literature @ <persona> Eddy Lin",
+      "chat": [
+        [
+          "Eddy Lin",
+          "Hey Ayesha! I noticed you were listening to the lecture. What did you think of it?"
+        ],
+        [
+          "Ayesha Khan",
+          "I thought the lecture was really interesting! The professor provided some great insights on how language can shape meaning in literature."
+        ],
+        [
+          "Eddy Lin",
+          "I agree, the professor definitely made some thought-provoking points. Have you ever thought about applying those ideas to music composition?"
+        ],
+        [
+          "Ayesha Khan",
+          "Yes, actually! I've always been fascinated by the relationship between language and music. I think it would be interesting to explore how language can influence the composition process and the overall message of a musical piece. Have you ever created music with a specific language or literary theme in mind?"
+        ],
+        [
+          "Eddy Lin",
+          "That's really cool! I haven't specifically created music with a language or literary theme in mind, but I'd love to give it a try. Maybe we can collaborate on a project together and explore that idea further!"
+        ],
+        [
+          "Ayesha Khan",
+          "That sounds like a great idea! I would love to collaborate with you on a project exploring the influence of language and literature on music composition. We can discuss it further after our classes."
+        ],
+        [
+          "Eddy Lin",
+          "I'm really excited about this collaboration! Let's plan to meet up after our classes and discuss our project in more detail."
+        ],
+        [
+          "Ayesha Khan",
+          "What time will you be done with your classes?"
+        ],
+        [
+          "Eddy Lin",
+          "I'll be done with my classes at 5:00 pm. How about we meet at 5:30 pm at Hobbs Cafe?"
+        ],
+        [
+          "Ayesha Khan",
+          "That works for me! I'll see you at Hobbs Cafe at 5:30 pm."
+        ]
+      ]
+    },
+    "Tamara Taylor": {
+      "movement": [
+        57,
+        66
+      ],
+      "pronunciatio": "\ud83c\udf54\ud83c\udf74",
+      "description": "working on her new children's book series (taking a break to have lunch) @ the Ville:Tamara Taylor and Carmen Ortiz's house:kitchen:cooking area",
+      "chat": null
+    },
+    "Carmen Ortiz": {
+      "movement": [
+        67,
+        46
+      ],
+      "pronunciatio": "\ud83d\udd0d\ud83d\udecd\ufe0f",
+      "description": "TOKEN LIMIT EXCEEDED (assisting customers in finding the supplies they need) @ the Ville:Harvey Oak Supply Store:supply store:supply store counter",
+      "chat": null
+    }
+  },
+  "meta": {
+    "curr_time": "February 13, 2003, 09:45:40"
+  }
+}

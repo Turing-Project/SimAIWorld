@@ -55,7 +55,7 @@ def GPT4_request(prompt):
         return completion["choices"][0]["message"]["content"]
 
     except:
-        print ("ChatGPT ERROR")
+        print("ChatGPT ERROR")
         return "ChatGPT ERROR"
 
 

@@ -1,0 +1,88 @@
+{
+  "persona": {
+    "Isabella Rodriguez": {
+      "movement": [
+        75,
+        14
+      ],
+      "pronunciatio": "\ud83d\udccb\u2705",
+      "description": "taking inventory and restocking supplies @ the Ville:Harvey Oak Supply Store:supply store:supply store product shelf",
+      "chat": null
+    },
+    "Giorgio Rossi": {
+      "movement": [
+        87,
+        20
+      ],
+      "pronunciatio": "\ud83d\udcda",
+      "description": "continuing to work on his research project (reviewing his research notes) @ the Ville:Giorgio Rossi's apartment:main room:desk",
+      "chat": null
+    },
+    "Carlos Gomez": {
+      "movement": [
+        95,
+        20
+      ],
+      "pronunciatio": "\ud83c\udfa7",
+      "description": "attending a creative writing workshop (listening to the workshop instructor's introduction) @ the Ville:Oak Hill College:hallway:<random>",
+      "chat": null
+    },
+    "Eddy Lin": {
+      "movement": [
+        95,
+        73
+      ],
+      "pronunciatio": "\ud83d\udcdd",
+      "description": "attending classes at Oak Hill College (taking notes during the lecture) @ the Ville:Oak Hill College:classroom:classroom podium",
+      "chat": null
+    },
+    "Klaus Mueller": {
+      "movement": [
+        129,
+        46
+      ],
+      "pronunciatio": "\ud83d\udcda\ud83e\uddd1\u200d",
+      "description": "working on his research paper at the library @ the Ville:Oak Hill College:library:library table",
+      "chat": null
+    },
+    "Maria Lopez": {
+      "movement": [
+        123,
+        57
+      ],
+      "pronunciatio": "\ud83d\ude34",
+      "description": "sleeping @ the Ville:Dorm for Oak Hill College:Maria Lopez's room:bed",
+      "chat": null
+    },
+    "Ayesha Khan": {
+      "movement": [
+        117,
+        59
+      ],
+      "pronunciatio": "\ud83c\udfa7",
+      "description": "attending her classes at Oak Hill College (listening to the lecture) @ the Ville:Oak Hill College:classroom:classroom student seating",
+      "chat": null
+    },
+    "Tamara Taylor": {
+      "movement": [
+        53,
+        74
+      ],
+      "pronunciatio": "\ud83d\udcda\ud83d\udd0e",
+      "description": "working on her new children's book series (reviewing her notes and ideas for the book) @ the Ville:Tamara Taylor and Carmen Ortiz's house:Tamara Taylor's room:desk",
+      "chat": null
+    },
+    "Carmen Ortiz": {
+      "movement": [
+        59,
+        73
+      ],
+      "pronunciatio": "\ud83d\udce6\ud83d\udd04",
+      "description": "TOKEN LIMIT EXCEEDED (restocking shelves with new inventory) @ the Ville:Harvey Oak Supply Store:supply store:supply store product shelf",
+      "chat": null
+    }
+  },
+  "meta": {
+    "curr_time": "February 13, 2003, 09:10:20"
+  }
+}

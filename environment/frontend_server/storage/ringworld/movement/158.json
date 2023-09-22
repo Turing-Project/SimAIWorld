@@ -1,0 +1,218 @@
+{
+  "persona": {
+    "Isabella Rodriguez": {
+      "movement": [
+        65,
+        47
+      ],
+      "pronunciatio": "\ud83d\udce6\ud83d\udd03",
+      "description": "taking inventory and restocking supplies @ the Ville:Harvey Oak Supply Store:supply store:supply store product shelf",
+      "chat": null
+    },
+    "Giorgio Rossi": {
+      "movement": [
+        87,
+        24
+      ],
+      "pronunciatio": "\ud83d\udd2c",
+      "description": "continuing to work on his research project (analyzing data collected from his experiments) @ the Ville:Giorgio Rossi's apartment:main room:blackboard",
+      "chat": null
+    },
+    "Carlos Gomez": {
+      "movement": [
+        111,
+        26
+      ],
+      "pronunciatio": "\ud83d\udcac",
+      "description": "conversing about This is a conversation between Carlos Gomez and Ayesha Khan about their shared interest in Shakespeare's plays and their plan to collaborate on a creative project after the workshop. @ <persona> Ayesha Khan",
+      "chat": [
+        [
+          "Carlos Gomez",
+          "Hey Ayesha! How are you finding the lecture so far?"
+        ],
+        [
+          "Ayesha Khan",
+          "Hey Carlos! The lecture is really interesting. I'm especially fascinated by the use of language in Shakespeare's plays. It's such a rich and complex topic."
+        ],
+        [
+          "Carlos Gomez",
+          "That sounds fascinating! I've always been a fan of Shakespeare's work. Do you have a favorite play of his?"
+        ],
+        [
+          "Ayesha Khan",
+          "I really enjoy Macbeth and Hamlet. They both have such powerful use of language. Have you read them?"
+        ],
+        [
+          "Carlos Gomez",
+          "Yes, I've read both Macbeth and Hamlet. They are truly remarkable plays with intricate plots and unforgettable characters. I particularly love Macbeth's exploration of ambition and the consequences of unchecked power. It's a chilling and thought-provoking play."
+        ],
+        [
+          "Ayesha Khan",
+          "I agree, Macbeth is definitely a chilling play that raises important questions about ambition and power. Have you come across any interesting resources or analysis on the use of language in Shakespeare's plays?"
+        ],
+        [
+          "Carlos Gomez",
+          "I actually recently came across a book called 'Shakespeare's Language: A Glossary of Unfamiliar Words in His Plays'. It provides a deeper understanding of the language used in Shakespeare's works. Would you be interested in borrowing it?"
+        ],
+        [
+          "Ayesha Khan",
+          "That sounds like a valuable resource! I would definitely be interested in borrowing 'Shakespeare's Language: A Glossary of Unfamiliar Words in His Plays'. It would help deepen my understanding of the language in Shakespeare's works."
+        ],
+        [
+          "Carlos Gomez",
+          "I can lend you the book after the workshop. Would you like me to bring it tomorrow?"
+        ],
+        [
+          "Ayesha Khan",
+          "Thank you so much, Carlos! That would be really helpful. I appreciate it."
+        ],
+        [
+          "Carlos Gomez",
+          "Sure, I'll bring it for you tomorrow. By the way, have you ever thought about collaborating on a creative project? I think our interests in literature and your fascination with language could make for an interesting collaboration."
+        ],
+        [
+          "Ayesha Khan",
+          "That sounds like a great idea, Carlos! I would love to collaborate on a creative project. Let's discuss it further and see what we can come up with."
+        ],
+        [
+          "Carlos Gomez",
+          "Let's meet up after the workshop to discuss our collaboration in more detail."
+        ],
+        [
+          "Ayesha Khan",
+          "What time does the workshop end?"
+        ],
+        [
+          "Carlos Gomez",
+          "The workshop ends at 12:00 pm."
+        ],
+        [
+          "Ayesha Khan",
+          "What time is it now?"
+        ]
+      ]
+    },
+    "Eddy Lin": {
+      "movement": [
+        112,
+        25
+      ],
+      "pronunciatio": "\ud83d\udcac",
+      "description": "attending classes at Oak Hill College (participating in class discussions) @ the Ville:Oak Hill College:classroom:classroom student seating",
+      "chat": null
+    },
+    "Klaus Mueller": {
+      "movement": [
+        119,
+        24
+      ],
+      "pronunciatio": "\ud83d\udcda",
+      "description": "working on his research paper at the library @ the Ville:Oak Hill College:library:library table",
+      "chat": null
+    },
+    "Maria Lopez": {
+      "movement": [
+        123,
+        57
+      ],
+      "pronunciatio": "\ud83d\ude34",
+      "description": "sleeping @ the Ville:Dorm for Oak Hill College:Maria Lopez's room:bed",
+      "chat": null
+    },
+    "Ayesha Khan": {
+      "movement": [
+        109,
+        27
+      ],
+      "pronunciatio": "\ud83d\udcac",
+      "description": "conversing about This is a conversation between Carlos Gomez and Ayesha Khan about their shared interest in Shakespeare's plays and their plan to collaborate on a creative project after the workshop. @ <persona> Carlos Gomez",
+      "chat": [
+        [
+          "Carlos Gomez",
+          "Hey Ayesha! How are you finding the lecture so far?"
+        ],
+        [
+          "Ayesha Khan",
+          "Hey Carlos! The lecture is really interesting. I'm especially fascinated by the use of language in Shakespeare's plays. It's such a rich and complex topic."
+        ],
+        [
+          "Carlos Gomez",
+          "That sounds fascinating! I've always been a fan of Shakespeare's work. Do you have a favorite play of his?"
+        ],
+        [
+          "Ayesha Khan",
+          "I really enjoy Macbeth and Hamlet. They both have such powerful use of language. Have you read them?"
+        ],
+        [
+          "Carlos Gomez",
+          "Yes, I've read both Macbeth and Hamlet. They are truly remarkable plays with intricate plots and unforgettable characters. I particularly love Macbeth's exploration of ambition and the consequences of unchecked power. It's a chilling and thought-provoking play."
+        ],
+        [
+          "Ayesha Khan",
+          "I agree, Macbeth is definitely a chilling play that raises important questions about ambition and power. Have you come across any interesting resources or analysis on the use of language in Shakespeare's plays?"
+        ],
+        [
+          "Carlos Gomez",
+          "I actually recently came across a book called 'Shakespeare's Language: A Glossary of Unfamiliar Words in His Plays'. It provides a deeper understanding of the language used in Shakespeare's works. Would you be interested in borrowing it?"
+        ],
+        [
+          "Ayesha Khan",
+          "That sounds like a valuable resource! I would definitely be interested in borrowing 'Shakespeare's Language: A Glossary of Unfamiliar Words in His Plays'. It would help deepen my understanding of the language in Shakespeare's works."
+        ],
+        [
+          "Carlos Gomez",
+          "I can lend you the book after the workshop. Would you like me to bring it tomorrow?"
+        ],
+        [
+          "Ayesha Khan",
+          "Thank you so much, Carlos! That would be really helpful. I appreciate it."
+        ],
+        [
+          "Carlos Gomez",
+          "Sure, I'll bring it for you tomorrow. By the way, have you ever thought about collaborating on a creative project? I think our interests in literature and your fascination with language could make for an interesting collaboration."
+        ],
+        [
+          "Ayesha Khan",
+          "That sounds like a great idea, Carlos! I would love to collaborate on a creative project. Let's discuss it further and see what we can come up with."
+        ],
+        [
+          "Carlos Gomez",
+          "Let's meet up after the workshop to discuss our collaboration in more detail."
+        ],
+        [
+          "Ayesha Khan",
+          "What time does the workshop end?"
+        ],
+        [
+          "Carlos Gomez",
+          "The workshop ends at 12:00 pm."
+        ],
+        [
+          "Ayesha Khan",
+          "What time is it now?"
+        ]
+      ]
+    },
+    "Tamara Taylor": {
+      "movement": [
+        57,
+        66
+      ],
+      "pronunciatio": "\ud83c\udf54\ud83c\udf74",
+      "description": "working on her new children's book series (taking a break to have lunch) @ the Ville:Tamara Taylor and Carmen Ortiz's house:kitchen:cooking area",
+      "chat": null
+    },
+    "Carmen Ortiz": {
+      "movement": [
+        65,
+        46
+      ],
+      "pronunciatio": "\ud83d\udd0d\ud83d\udecd\ufe0f",
+      "description": "TOKEN LIMIT EXCEEDED (assisting customers in finding the supplies they need) @ the Ville:Harvey Oak Supply Store:supply store:supply store counter",
+      "chat": null
+    }
+  },
+  "meta": {
+    "curr_time": "February 13, 2003, 09:36:20"
+  }
+}
