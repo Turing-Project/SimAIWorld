@@ -15,8 +15,10 @@ from gpt4all import GPT4All, Embed4All
 
 model = GPT4All(gpt4all_model)
 
+
 def temp_sleep(seconds=0.1):
     time.sleep(seconds)
+
 
 def ChatGPT_single_request(prompt):
     temp_sleep()

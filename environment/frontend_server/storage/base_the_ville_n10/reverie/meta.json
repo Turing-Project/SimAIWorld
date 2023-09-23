@@ -1,19 +1,19 @@
 {
-  "fork_sim_code": "base_the_ville_n25",
+  "fork_sim_code": "base_the_ville_n10",
   "start_date": "February 13, 2003",
   "curr_time": "February 13, 2003, 09:10:00",
   "sec_per_step": 10,
   "maze_name": "the_ville",
   "persona_names": [
-    "Isabella Rodriguez",
-    "Giorgio Rossi", 
-    "Carlos Gomez",
-    "Eddy Lin",
-    "Klaus Mueller",
-    "Maria Lopez", 
-    "Ayesha Khan", 
-    "Tamara Taylor",
-    "Carmen Ortiz"
+    "胖哥",
+    "铁蛋",
+    "溜子",
+    "傻子",
+    "愣子",
+    "阿牛",
+    "小璐",
+    "龙哥",
+    "红红"
   ],
   "step": 0
 }

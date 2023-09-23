@@ -25,7 +25,7 @@
     <inspection_tool class="PyPackageRequirementsInspection" enabled="true" level="WARNING" enabled_by_default="true">
       <option name="ignoredPackages">
         <value>
-          <list size="55">
+          <list size="57">
             <item index="0" class="java.lang.String" itemvalue="urllib3" />
             <item index="1" class="java.lang.String" itemvalue="regex" />
             <item index="2" class="java.lang.String" itemvalue="pathlib" />
@@ -81,6 +81,8 @@
             <item index="52" class="java.lang.String" itemvalue="aiosignal" />
             <item index="53" class="java.lang.String" itemvalue="idna" />
             <item index="54" class="java.lang.String" itemvalue="Pillow" />
+            <item index="55" class="java.lang.String" itemvalue="django_storages" />
+            <item index="56" class="java.lang.String" itemvalue="Requests" />
           </list>
         </value>
       </option>

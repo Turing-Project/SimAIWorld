@@ -32,34 +32,44 @@
 ```
 pip install -r requirements.txt
 ```
-然后在`reverie/backend_server`目录下生成一个 `utils.py` 文件，复制下面的代码并在里面替换上你自己的OpenAI API key.
+修改`reverie/backend_server`目录下的 `utils.py` 文件，在里面替换上你自己的<Your OpenAI API>和系统名称<Name>.
 
 ### Step 1. 生成工具文件
 ```
 # 如果用chatgpt接口，选择OpenAI API Key
 openai_api_key = "<Your OpenAI API>"
-# 如果用gpt4-All接口，参考https://observablehq.com/@simonw/gpt4all-models
+
+# 如果用localGPT接口，参考https://observablehq.com/@simonw/gpt4all-models
 gpt4all_model="orca-mini-3b.ggmlv3.q4_0.bin"
 max_tokens = 30
 temperature = 0.5
-# 如果用LLAMA-2，把GPT调用的函数改成下面这个
+
+# 如果用LLAMA-2，注意GPT调用的函数方式
 response = completion(model="meta-llama/Llama-2-7b-hf", messages=messages)
 
 # 起个名字
 key_owner = "<Name>"
 
-maze_assets_loc = "../../environment/frontend_server/static_dirs/assets"
-env_matrix = f"{maze_assets_loc}/the_ville/matrix"
-env_visuals = f"{maze_assets_loc}/the_ville/visuals"
-
-fs_storage = "../../environment/frontend_server/storage"
-fs_temp_storage = "../../environment/frontend_server/temp_storage"
-
-collision_block_id = "32125"
-
 # Verbose 
 debug = True
 ```
+
+### Step 2. 测试模型生成
+测试模型的调用和生成结果是否正常，确认无误后再进行“运行仿真”步骤。大模型生成有时会不按格式，可以尝试修改prompt。
+<br>
+在项目根目录下直接执行`python test.py`,在test.py文件中内置了4种调用方法：
+```aidl
+ChatGPT_request(prompt)
+ChatGPT_turbo_request(prompt)
+GPT4_request(prompt)
+GPTLocal_request(prompt)
+```
+可以根据自己的设置更加或添加新的大模型，目前中文生成效果最好的有
+- ChatGPT(GPT-4) API
+- Ernie Bot V2.0
+- LLAMA2-chinese ver
+
+个人经验是一张RTX 4070显卡可以以中等速度跑7B的LLAMA2，而直接调API的方法会快很多（但贵）
 
 ## 运行仿真
 
@@ -102,15 +112,16 @@ AI模拟小镇需要启动2个服务，一个环境服务（Django，常驻）�
 
 保存的仿真进度会在你下一次的仿真服务启动时获取，你可以直接进行回放。 
 
-### Step 4. 虚拟世界回放
-首先按照前两步打开服务（如果你没关闭环境服务，可以只启动仿真服务）进入回放页面: `http://localhost:8000/replay/<simulation-name>/<starting-time-step>`. 这里 `<simulation-name>` 是你之前命名的仿真名称, `<starting-time-step>` 对应你想从第几个时间步开始回放.
+### Step 4. 虚拟世界
+环界的运行并不是实时的，而是有延迟的。是由模型生成N个时间步后，再通过replay映射到前端。
 
-比如，我要从第10秒钟开始，回放test_valley_0813这个保存的仿真:  
-[http://localhost:8000/replay/July1_the_ville_isabella_maria_klaus-step-3-20/1/](http://localhost:8000/replay/test_valley_0813/1/)
+要完成replay，首先按照前两步打开服务（如果你没关闭环境服务，可以只启动仿真服务）
+进入回放页面: `http://localhost:8000/replay/<simulation-name>/<starting-time-step>`. 这里 `<simulation-name>` 是你之前命名的仿真名称, `<starting-time-step>` 对应你想从第几个时间步开始回放.
 
-以上的回放目前只支持debug，页面展示的人物都是一样的，如果要完整回放，先找到`reverie`文件夹下面的`compress_sim_storage.py`，把你要回放的仿真名称作为参数传给`compress`函数.
+默认生成的回放目前只支持debug，页面展示的人物都是一样的，如果要完整回放，先找到`reverie`文件夹下面的`compress_sim_storage.py`，把你要回放的仿真名称作为参数传给`compress`函数.
 
-然后进入这个页面: `http://localhost:8000/demo/<simulation-name>/<starting-time-step>/<simulation-speed>`. 
+比如，我要从第10秒钟开始，回放ringworld这个保存的仿真:  
+[http://localhost:8000/demo/ringworld/1/3/](http://localhost:8000/demo/ringworld/1/3/)
 
 这里多出来的子页面参数`<simulation-speed>` 指的是回放速度, 最小为1，最大为5，速度递增。
 
