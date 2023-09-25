@@ -23,23 +23,30 @@
 - 优化大模型返回的文字表达（东北腔）
 - 新增LLaMa2-7b/GPT4ALL/Falcon-7b/文心大模型
 
-## <img src="https://img2.baidu.com/it/u=1662862136,2119306862&fm=253&fmt=auto&app=120&f=JPEG?w=1422&h=800" alt="Generative Isabella">   环境设置 
+## <img src="https://img2.baidu.com/it/u=1662862136,2119306862&fm=253&fmt=auto&app=120&f=JPEG?w=1422&h=800" alt="Generative Isabella">   
 
+<br>
+
+## 环境设置 
 - 基本环境和论文保持一致，Python==3.9.12（兼容旧版本，我用的3.8也可以，3.10不确定）
 <br>
 
-首先
+首先试行如下命令，安装配置环境：
 ```
 pip install -r requirements.txt
 ```
-修改`reverie/backend_server`目录下的 `utils.py` 文件，在里面替换上你自己的<Your OpenAI API>和系统名称<Name>.
+安装报错的话可以用这条：
+```
+pip install -r requirements.txt -i https://pypi.tuna.tsinghua.edu.cn/simple
+```
 
 ### Step 1. 生成工具文件
+修改`reverie/backend_server`目录下的 `utils.py` 文件，在里面替换上你自己的<Your OpenAI API>和系统名称<Name>.
 ```
 # 如果用chatgpt接口，选择OpenAI API Key
 openai_api_key = "<Your OpenAI API>"
 
-# 如果用localGPT接口，参考https://observablehq.com/@simonw/gpt4all-models
+# localGPT接口参考https://observablehq.com/@simonw/gpt4all-models
 gpt4all_model="orca-mini-3b.ggmlv3.q4_0.bin"
 max_tokens = 30
 temperature = 0.5
@@ -69,7 +76,7 @@ GPTLocal_request(prompt)
 - Ernie Bot V2.0
 - LLAMA2-chinese ver
 
-个人经验是一张RTX 4070显卡可以以中等速度跑7B的LLAMA2，而直接调API的方法会快很多（但贵）
+我们的经验是一张RTX 4070显卡可以以中等速度跑7B的LLAMA2，而直接调API的方法会快很多（但贵）
 
 ## 运行仿真
 
