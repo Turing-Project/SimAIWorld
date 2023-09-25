@@ -1,3 +1,5 @@
+# -*- coding: utf-8 -*-
+
 """
 Author: Joon Sung Park (joonspk@stanford.edu)
 File: views.py
@@ -12,16 +14,26 @@ import os
 import datetime
 from django.shortcuts import render, redirect, HttpResponseRedirect
 from django.http import HttpResponse, JsonResponse
-from global_methods import *
 
 from django.contrib.staticfiles.templatetags.staticfiles import static
+
+from .global_methods import *
 from .models import *
+
+with open("D:\\Tureco\\SimAIWorld\\environment\\frontend_server\\translator\\name.json", "r", encoding="utf-8") as f:
+    js = f.read()
+    names_mapping = json.loads(js)['persona_names_mapping']
+    # print(names_mapping)
 
 
 def landing(request):
     context = {}
     template = "landing/landing.html"
     return render(request, template, context)
+
+
+def testcall(request):
+    return HttpResponse(request.POST['text'] + "test")
 
 
 def demo(request, sim_code, step, play_speed="2"):
@@ -37,19 +49,21 @@ def demo(request, sim_code, step, play_speed="2"):
 
     # Loading the basic meta information about the simulation.
     meta = dict()
-    with open(meta_file) as json_file:
+    with open(meta_file, encoding='utf-8') as json_file:
         meta = json.load(json_file)
 
     sec_per_step = meta["sec_per_step"]
     start_datetime = datetime.datetime.strptime(meta["start_date"] + " 00:00:00",
                                                 '%B %d, %Y %H:%M:%S')
+    start_datetime += datetime.timedelta(hours=9)
+
     for i in range(step):
         start_datetime += datetime.timedelta(seconds=sec_per_step)
     start_datetime = start_datetime.strftime("%Y-%m-%dT%H:%M:%S")
 
     # Loading the movement file
     raw_all_movement = dict()
-    with open(move_file) as json_file:
+    with open(move_file, encoding='utf-8') as json_file:
         raw_all_movement = json.load(json_file)
 
     # Loading all names of the personas
@@ -57,9 +71,10 @@ def demo(request, sim_code, step, play_speed="2"):
     persona_names = []
     persona_names_set = set()
     for p in list(raw_all_movement["0"].keys()):
+        init_name = names_mapping[p] if p in names_mapping.keys() else p
         persona_names += [{"original": p,
                            "underscore": p.replace(" ", "_"),
-                           "initial": p[0] + p.split(" ")[-1][0]}]
+                           "initial": init_name}]
         persona_names_set.add(p)
 
     # <all_movement> is the main movement variable that we are passing to the
@@ -68,7 +83,7 @@ def demo(request, sim_code, step, play_speed="2"):
     # information in one step.
     all_movement = dict()
 
-    # Preparing the initial step.
+    # Preparing the initial steps.
     # <init_prep> sets the locations and descriptions of all agents at the
     # beginning of the demo determined by <step>.
     init_prep = dict()
@@ -90,6 +105,8 @@ def demo(request, sim_code, step, play_speed="2"):
     context = {"sim_code": sim_code,
                "step": step,
                "persona_names": persona_names,
+               "persona_names_sum": persona_names[:15],
+               "persona_names_mapping": names_mapping,
                "persona_init_pos": json.dumps(persona_init_pos),
                "all_movement": json.dumps(all_movement),
                "start_datetime": start_datetime,
@@ -225,6 +242,7 @@ def replay_persona_state(request, sim_code, step, persona_name):
     context = {"sim_code": sim_code,
                "step": step,
                "persona_name": persona_name,
+               "persona_names_mapping": names_mapping,
                "persona_name_underscore": persona_name_underscore,
                "scratch": scratch,
                "spatial": spatial,

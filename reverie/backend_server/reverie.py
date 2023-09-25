@@ -1,6 +1,5 @@
-"""
-Author: Joon Sung Park (joonspk@stanford.edu)
 
+"""
 File: reverie.py
 Description: This is the main program for running generative agent simulations
 that defines the ReverieServer class. This class maintains and records all  
@@ -36,6 +35,8 @@ from utils import *
 from maze import *
 from persona.persona import *
 
+os.environ["http_proxy"] = "http://127.0.0.1:7890"
+os.environ["https_proxy"] = "https://127.0.0.1:7890"
 
 ##############################################################################
 #                                  REVERIE                                   #
@@ -75,13 +76,13 @@ class ReverieServer:
         # "June 25, 2022"
         # e.g., ...strptime(June 25, 2022, "%B %d, %Y")
         self.start_time = datetime.datetime.strptime(
-            f"{reverie_meta['start_date']}, 00:00:00",
+            f"{reverie_meta['start_date']}, 06:00:00",
             "%B %d, %Y, %H:%M:%S")
         # <curr_time> is the datetime instance that indicates the game's current
         # time. This gets incremented by <sec_per_step> amount everytime the world
         # progresses (that is, everytime curr_env_file is recieved).
         self.curr_time = datetime.datetime.strptime(reverie_meta['curr_time'],
-                                                    "%B %d, %Y, %H:%M:%S")
+                                                    "%B %d, %Y, 09:%M:%S")
         # <sec_per_step> denotes the number of seconds in game time that each
         # step moves foward.
         self.sec_per_step = reverie_meta['sec_per_step']
@@ -174,7 +175,7 @@ class ReverieServer:
         reverie_meta = dict()
         reverie_meta["fork_sim_code"] = self.fork_sim_code
         reverie_meta["start_date"] = self.start_time.strftime("%B %d, %Y")
-        reverie_meta["curr_time"] = self.curr_time.strftime("%B %d, %Y, %H:%M:%S")
+        reverie_meta["curr_time"] = self.curr_time.strftime("%B %d, %Y, 09:%M:%S")
         reverie_meta["sec_per_step"] = self.sec_per_step
         reverie_meta["maze_name"] = self.maze.maze_name
         reverie_meta["persona_names"] = list(self.personas.keys())
@@ -432,7 +433,7 @@ class ReverieServer:
         sim_folder = f"{fs_storage}/{self.sim_code}"
 
         while True:
-            sim_command = input("Enter option: ")
+            sim_command = input("输入参数: ")
             sim_command = sim_command.strip()
             ret_str = ""
 
@@ -606,8 +607,8 @@ if __name__ == '__main__':
     #                    "July1_the_ville_isabella_maria_klaus-step-3-21")
     # rs.open_server()
 
-    origin = input("Enter the name of the forked simulation: ").strip()
-    target = input("Enter the name of the new simulation: ").strip()
+    origin = input("输入智能体名称: ").strip()
+    target = input("输入仿真的名字: ").strip()
 
     rs = ReverieServer(origin, target)
     rs.open_server()

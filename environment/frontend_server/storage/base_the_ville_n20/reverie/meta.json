@@ -1,0 +1,31 @@
+{
+  "fork_sim_code": "base_the_ville_n25",
+  "start_date": "February 13, 2003",
+  "curr_time": "February 13, 2003, 06:30:00",
+  "sec_per_step": 10,
+  "maze_name": "the_ville",
+  "persona_names": [
+    "Latoya Williams",
+    "Rajiv Patel",
+    "Abigail Chen",
+    "Francisco Lopez",
+    "Hailey Johnson",
+    "Arthur Burton", 
+    "Ryan Park", 
+    "Isabella Rodriguez", 
+    "Giorgio Rossi", 
+    "Carlos Gomez", 
+    "Klaus Mueller",
+    "Maria Lopez", 
+    "Ayesha Khan", 
+    "Wolfgang Schulz", 
+    "Mei Lin", 
+    "John Lin",
+    "Eddy Lin",
+    "Tom Moreno", 
+    "Jane Moreno", 
+    "Tamara Taylor", 
+    "Carmen Ortiz"
+  ],
+  "step": 0
+}

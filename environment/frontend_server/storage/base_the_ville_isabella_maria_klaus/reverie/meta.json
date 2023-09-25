@@ -5,9 +5,9 @@
   "sec_per_step": 10,
   "maze_name": "the_ville",
   "persona_names": [
-    "Isabella Rodriguez", 
+    "Isabella Rodriguez",
     "Maria Lopez",
-    "Klaus Mueller"    
+    "Klaus Mueller"
   ],
   "step": 0
 }

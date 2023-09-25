@@ -12,6 +12,7 @@ import math
 import sys
 import datetime
 import random
+
 sys.path.append('../')
 
 from global_methods import *
@@ -27,29 +28,29 @@ from persona.cognitive_modules.reflect import *
 from persona.cognitive_modules.execute import *
 from persona.cognitive_modules.converse import *
 
-class Persona: 
-  def __init__(self, name, folder_mem_saved=False):
-    # PERSONA BASE STATE 
-    # <name> is the full name of the persona. This is a unique identifier for
-    # the persona within Reverie. 
-    self.name = name
 
-    # PERSONA MEMORY 
-    # If there is already memory in folder_mem_saved, we load that. Otherwise,
-    # we create new memory instances. 
-    # <s_mem> is the persona's spatial memory. 
-    f_s_mem_saved = f"{folder_mem_saved}/bootstrap_memory/spatial_memory.json"
-    self.s_mem = MemoryTree(f_s_mem_saved)
-    # <s_mem> is the persona's associative memory. 
-    f_a_mem_saved = f"{folder_mem_saved}/bootstrap_memory/associative_memory"
-    self.a_mem = AssociativeMemory(f_a_mem_saved)
-    # <scratch> is the persona's scratch (short term memory) space. 
-    scratch_saved = f"{folder_mem_saved}/bootstrap_memory/scratch.json"
-    self.scratch = Scratch(scratch_saved)
+class Persona:
+    def __init__(self, name, folder_mem_saved=False):
+        # PERSONA BASE STATE
+        # <name> is the full name of the persona. This is a unique identifier for
+        # the persona within Reverie.
+        self.name = name
 
+        # PERSONA MEMORY
+        # If there is already memory in folder_mem_saved, we load that. Otherwise,
+        # we create new memory instances.
+        # <s_mem> is the persona's spatial memory.
+        f_s_mem_saved = f"{folder_mem_saved}/bootstrap_memory/spatial_memory.json"
+        self.s_mem = MemoryTree(f_s_mem_saved)
+        # <s_mem> is the persona's associative memory.
+        f_a_mem_saved = f"{folder_mem_saved}/bootstrap_memory/associative_memory"
+        self.a_mem = AssociativeMemory(f_a_mem_saved)
+        # <scratch> is the persona's scratch (short term memory) space.
+        scratch_saved = f"{folder_mem_saved}/bootstrap_memory/scratch.json"
+        self.scratch = Scratch(scratch_saved)
 
-  def save(self, save_folder): 
-    """
+    def save(self, save_folder):
+        """
     Save persona's current state (i.e., memory). 
 
     INPUT: 
@@ -57,29 +58,28 @@ class Persona:
     OUTPUT: 
       None
     """
-    # Spatial memory contains a tree in a json format. 
-    # e.g., {"double studio": 
-    #         {"double studio": 
-    #           {"bedroom 2": 
-    #             ["painting", "easel", "closet", "bed"]}}}
-    f_s_mem = f"{save_folder}/spatial_memory.json"
-    self.s_mem.save(f_s_mem)
-    
-    # Associative memory contains a csv with the following rows: 
-    # [event.type, event.created, event.expiration, s, p, o]
-    # e.g., event,2022-10-23 00:00:00,,Isabella Rodriguez,is,idle
-    f_a_mem = f"{save_folder}/associative_memory"
-    self.a_mem.save(f_a_mem)
+        # Spatial memory contains a tree in a json format.
+        # e.g., {"double studio":
+        #         {"double studio":
+        #           {"bedroom 2":
+        #             ["painting", "easel", "closet", "bed"]}}}
+        f_s_mem = f"{save_folder}/spatial_memory.json"
+        self.s_mem.save(f_s_mem)
 
-    # Scratch contains non-permanent data associated with the persona. When 
-    # it is saved, it takes a json form. When we load it, we move the values
-    # to Python variables. 
-    f_scratch = f"{save_folder}/scratch.json"
-    self.scratch.save(f_scratch)
+        # Associative memory contains a csv with the following rows:
+        # [event.type, event.created, event.expiration, s, p, o]
+        # e.g., event,2022-10-23 00:00:00,,Isabella Rodriguez,is,idle
+        f_a_mem = f"{save_folder}/associative_memory"
+        self.a_mem.save(f_a_mem)
 
+        # Scratch contains non-permanent data associated with the persona. When
+        # it is saved, it takes a json form. When we load it, we move the values
+        # to Python variables.
+        f_scratch = f"{save_folder}/scratch.json"
+        self.scratch.save(f_scratch)
 
-  def perceive(self, maze):
-    """
+    def perceive(self, maze):
+        """
     This function takes the current maze, and returns events that are 
     happening around the persona. Importantly, perceive is guided by 
     two key hyper-parameter for the  persona: 1) att_bandwidth, and 
@@ -104,11 +104,10 @@ class Persona:
         See associative_memory.py -- but to get you a sense of what it 
         receives as its input: "s, p, o, desc, persona.scratch.curr_time"
     """
-    return perceive(self, maze)
+        return perceive(self, maze)
 
-
-  def retrieve(self, perceived):
-    """
+    def retrieve(self, perceived):
+        """
     This function takes the events that are perceived by the persona as input
     and returns a set of related events and thoughts that the persona would 
     need to consider as context when planning. 
@@ -120,11 +119,10 @@ class Persona:
                  while the latter layer specifies the "curr_event", "events", 
                  and "thoughts" that are relevant.
     """
-    return retrieve(self, perceived)
+        return retrieve(self, perceived)
 
-
-  def plan(self, maze, personas, new_day, retrieved):
-    """
+    def plan(self, maze, personas, new_day, retrieved):
+        """
     Main cognitive function of the chain. It takes the retrieved memory and 
     perception, as well as the maze and the first day state to conduct both 
     the long term and short term planning for the persona. 
@@ -145,11 +143,10 @@ class Persona:
     OUTPUT 
       The target action address of the persona (persona.scratch.act_address).
     """
-    return plan(self, maze, personas, new_day, retrieved)
+        return plan(self, maze, personas, new_day, retrieved)
 
-
-  def execute(self, maze, personas, plan):
-    """
+    def execute(self, maze, personas, plan):
+        """
     This function takes the agent's current plan and outputs a concrete 
     execution (what object to use, and what tile to travel to). 
 
@@ -167,11 +164,10 @@ class Persona:
         writing her next novel (editing her novel) 
         @ double studio:double studio:common room:sofa
     """
-    return execute(self, maze, personas, plan)
+        return execute(self, maze, personas, plan)
 
-
-  def reflect(self):
-    """
+    def reflect(self):
+        """
     Reviews the persona's memory and create new thoughts based on it. 
 
     INPUT: 
@@ -179,11 +175,10 @@ class Persona:
     OUTPUT: 
       None
     """
-    reflect(self)
+        reflect(self)
 
-
-  def move(self, maze, personas, curr_tile, curr_time):
-    """
+    def move(self, maze, personas, curr_tile, curr_time):
+        """
     This is the main cognitive function where our main sequence is called. 
 
     INPUT: 
@@ -201,72 +196,34 @@ class Persona:
         writing her next novel (editing her novel) 
         @ double studio:double studio:common room:sofa
     """
-    # Updating persona's scratch memory with <curr_tile>. 
-    self.scratch.curr_tile = curr_tile
+        # Updating persona's scratch memory with <curr_tile>.
+        self.scratch.curr_tile = curr_tile
 
-    # We figure out whether the persona started a new day, and if it is a new
-    # day, whether it is the very first day of the simulation. This is 
-    # important because we set up the persona's long term plan at the start of
-    # a new day. 
-    new_day = False
-    if not self.scratch.curr_time: 
-      new_day = "First day"
-    elif (self.scratch.curr_time.strftime('%A %B %d')
-          != curr_time.strftime('%A %B %d')):
-      new_day = "New day"
-    self.scratch.curr_time = curr_time
+        # We figure out whether the persona started a new day, and if it is a new
+        # day, whether it is the very first day of the simulation. This is
+        # important because we set up the persona's long term plan at the start of
+        # a new day.
+        new_day = False
+        if not self.scratch.curr_time:
+            new_day = "First day"
+        elif (self.scratch.curr_time.strftime('%A %B %d')
+              != curr_time.strftime('%A %B %d')):
+            new_day = "New day"
+        self.scratch.curr_time = curr_time
 
-    # Main cognitive sequence begins here. 
-    perceived = self.perceive(maze)
-    retrieved = self.retrieve(perceived)
-    plan = self.plan(maze, personas, new_day, retrieved)
-    self.reflect()
+        # Main cognitive sequence begins here.
+        perceived = self.perceive(maze)
+        retrieved = self.retrieve(perceived)
+        plan = self.plan(maze, personas, new_day, retrieved)
+        self.reflect()
 
-    # <execution> is a triple set that contains the following components: 
-    # <next_tile> is a x,y coordinate. e.g., (58, 9)
-    # <pronunciatio> is an emoji. e.g., "\ud83d\udca4"
-    # <description> is a string description of the movement. e.g., 
-    #   writing her next novel (editing her novel) 
-    #   @ double studio:double studio:common room:sofa
-    return self.execute(maze, personas, plan)
+        # <execution> is a triple set that contains the following components:
+        # <next_tile> is a x,y coordinate. e.g., (58, 9)
+        # <pronunciatio> is an emoji. e.g., "\ud83d\udca4"
+        # <description> is a string description of the movement. e.g.,
+        #   writing her next novel (editing her novel)
+        #   @ double studio:double studio:common room:sofa
+        return self.execute(maze, personas, plan)
 
-
-  def open_convo_session(self, convo_mode): 
-    open_convo_session(self, convo_mode)
-    
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+    def open_convo_session(self, convo_mode):
+        open_convo_session(self, convo_mode)
