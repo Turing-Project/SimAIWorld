@@ -50,11 +50,10 @@ def ChatGPT_request(prompts: object) -> object:
 
     try:
         # openai call
-        response = openai.ChatCompletion.create(
-            model="gpt-3.5-turbo",
-            messages=[{"role": "user", "content": prompts}]
+        completion = openai.ChatCompletion.create(
+            engine="text-davinci-003",
+            prompt=prompt
         )
-        reply = response["choices"][0]["message"]["content"]
 
         # llama2 call
         # response = completion(model="meta-llama/Llama-2-7b-hf",
@@ -82,10 +81,11 @@ def ChatGPT_turbo_request(prompt: str, gpt_parameter={}) -> object:
     openai.api_key = random.choice(openai_api_key)
 
     try:
-        completion = openai.ChatCompletion.create(
-            engine="text-davinci-003",
-            prompt=prompt
+        response = openai.ChatCompletion.create(
+            model="gpt-3.5-turbo",
+            messages=[{"role": "user", "content": prompts}]
         )
+
         return completion["choices"][0]["message"]["content"]
 
     except Exception as e:
