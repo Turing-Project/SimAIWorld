@@ -20,7 +20,7 @@ from django.contrib.staticfiles.templatetags.staticfiles import static
 from .global_methods import *
 from .models import *
 
-with open("D:\\Tureco\\SimAIWorld\\environment\\frontend_server\\translator\\name.json", "r", encoding="utf-8") as f:
+with open("./translator/name.json", "r", encoding="utf-8") as f:
     js = f.read()
     names_mapping = json.loads(js)['persona_names_mapping']
     # print(names_mapping)
