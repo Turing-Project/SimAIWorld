@@ -268,6 +268,7 @@ def get_embedding(text):
     text = text.replace("\n", " ")
     if not text:
         text = "this is blank"
+    # gpt4all的更新代码，污染了embedding model的下载路径，需要自行前往https://gpt4all.io/models/gguf/all-MiniLM-L6-v2-f16.gguf 下载到~/.cache/gpt4all/(或自定义model_path)
     embedder = Embed4All()
     embedding = embedder.embed(text)
     return embedding
@@ -275,6 +276,7 @@ def get_embedding(text):
 
 
 if __name__ == '__main__':
+    max_tokens, temperature = 1023, 0.7
     gpt_parameter = {"max_tokens": max_tokens,
                      "temperature": temperature, "top_p": 1, "stream": False,
                      "frequency_penalty": 0, "presence_penalty": 0,
@@ -283,7 +285,7 @@ if __name__ == '__main__':
     prompt_lib_file = "prompt_template/test_prompt_July5.txt"
     prompt = generate_prompt(curr_input, prompt_lib_file)
 
-    def __func_validate(gpt_response):
+    def __func_validate(gpt_response,prompt=None):
         if len(gpt_response.strip()) <= 1:
             return False
         if len(gpt_response.strip().split(" ")) > 1:

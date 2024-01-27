@@ -82,7 +82,7 @@ class ReverieServer:
         # time. This gets incremented by <sec_per_step> amount everytime the world
         # progresses (that is, everytime curr_env_file is recieved).
         self.curr_time = datetime.datetime.strptime(reverie_meta['curr_time'],
-                                                    "%B %d, %Y, 09:%M:%S")
+                                                    '%B %d, %Y, %H:%M:%S')
         # <sec_per_step> denotes the number of seconds in game time that each
         # step moves foward.
         self.sec_per_step = reverie_meta['sec_per_step']
